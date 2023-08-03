@@ -2,7 +2,7 @@ class ScriptsController < ApplicationController
   before_action :set_script, only: [:show]
 
   def index
-    @scripts = Script.all.where(user: current_user)
+    @scripts = Script.where(user: current_user)
   end
 
   def show; end
