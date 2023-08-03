@@ -1,4 +1,19 @@
 <div class="container">
-  <h1>Blueprints#index</h1>
-  <p>Find me in app/views/blueprints/index.html.erb</p>
+  <div class="row">
+    <div class="col text-center mb-5">
+      <h1 class="display-4 font-weight-bolder">Yoo look at these sick video formats</h1>
+      <p class="lead">They're pretty cool right?</p>
+    </div>
+  </div>
+  <div class="blueprints-index">
+    <section class="wrapper">
+      <div class="container">
+        <div class="row">
+          <% 4.times do %>
+            <%= render 'blueprints/blueprint' %>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
