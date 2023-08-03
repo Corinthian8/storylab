@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :blueprints, only: %i[index show]
 
-  resources :scripts, only: :show
+  resources :scripts, only: %i[index show]
 
 end
