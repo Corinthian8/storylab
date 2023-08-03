@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: storylab_production
+  database: dc0c2fgthu0rlq
   username: storylab
   password: <%= ENV["STORYLAB_DATABASE_PASSWORD"] %>
