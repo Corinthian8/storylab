@@ -7,7 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :blueprints, only: %i[index show]
-
   resources :scripts, only: :show
-
 end

@@ -1,8 +1,15 @@
 class ScriptsController < ApplicationController
+  before_action :set_script, only: [:show]
 
-
-  def show
-    @script = Script.find(params[:id])
+  def index
+    @scripts = Script.all.where(user: current_user)
   end
 
+  def show; end
+
+  private
+
+  def set_script
+    @script = Script.find(params[:id])
+  end
 end
