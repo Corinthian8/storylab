@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_101415) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_105204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blueprints", force: :cascade do |t|
+    t.string "name"
+    t.text "prompt_template"
+    t.text "sample_videos", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scripts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.bigint "blueprint_id", null: false
+    t.string "topic"
+    t.text "script_body"
+    t.string "tone"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blueprint_id"], name: "index_scripts_on_blueprint_id"
+    t.index ["user_id"], name: "index_scripts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_101415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "scripts", "blueprints"
+  add_foreign_key "scripts", "users"
 end
