@@ -1,3 +1,4 @@
+# config/routes.rb
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :blueprints, only: %i[index show]
-  resources :scripts, only: %i[index show]
+  resources :scripts, only: %i[index show new create]
 end
