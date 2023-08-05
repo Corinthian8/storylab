@@ -1,21 +1,26 @@
-<div class="container">
-  <div class="row">
+<div class="container py-4">
+  <div class="row pb-4">
     <div class="col-6" data-controller="video-player" data-target="thumbnails">
-      <div class="d-flex justify-content-between py-2">
-        <%= image_tag "https://i.ytimg.com/vi/vgZvlLkFeAs/hqdefault.jpg",
-        id: "vgZvlLkFeAs",
-        class: "small-thumbnail",
-        data: { video_player_target: "first", action: "click->video-player#play"} %>
-        <%= image_tag "https://i.ytimg.com/vi/8UKikrUZg7Q/hqdefault.jpg",
-        id: "8UKikrUZg7Q",
-        class: "small-thumbnail",
-        data: { video_player_target: "second", action: "click->video-player#play"} %>
-        <%= image_tag "https://i.ytimg.com/vi/wmb5AmE4TUs/hqdefault.jpg",
-        id: "wmb5AmE4TUs",
-        class: "small-thumbnail",
-        data: { video_player_target: "third", action: "click->video-player#play"} %>
+      <div class="d-flex justify-content-between my-4">
+        <% @blueprint.sample_videos.each do |video| %>
+          <%= image_tag "https://i.ytimg.com/vi/#{video}/hqdefault.jpg",
+          id: "#{video}",
+          class: "small-thumbnail",
+          data: { action: "click->video-player#play"} %>
+        <% end %>
       </div>
       <iframe class="py-2" data-video-player-target="video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop muted playsinline></iframe>
+    </div>
+    <div class="col-6 text-center">
+      <h1><%= @blueprint.name %></h1>
+      <div class="text-cover">
+        <p><%= @blueprint.prompt_template[0..1500] %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <%= link_to "Use this blueprint", script_path, class: "btn btn-lg btn-dark rounded-2" %>
     </div>
   </div>
 </div>
