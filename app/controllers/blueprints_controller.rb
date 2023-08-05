@@ -1,3 +1,4 @@
+# app/controllers/blueprints_controller.rb
 class BlueprintsController < ApplicationController
   before_action :set_blueprint, only: [:show]
 
@@ -5,7 +6,9 @@ class BlueprintsController < ApplicationController
     @blueprints = Blueprint.all
   end
 
-  def show; end
+  def show
+    @script = Script.new
+  end
 
   private
 
