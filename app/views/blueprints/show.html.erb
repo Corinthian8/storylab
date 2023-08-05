@@ -1,4 +1,12 @@
+<%# app/views/blueprints/show.html.erb %>
 <div class="container">
   <h1>Blueprints#show</h1>
   <p>Find me in app/views/blueprints/show.html.erb</p>
+
+<%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
+  <%= f.input :topic %>
+  <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
+  <%= f.submit %>
+<% end %>
+
 </div>
