@@ -1,1 +1,20 @@
-// Specific CSS for your home-page
+.black-background {
+  background-color: black;
+}
+
+.faded-banner {
+  opacity: 70%;
+}
+
+.home-text {
+  position: fixed;
+  z-index: 3;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.home-text h1, h3 {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 2px 2px 5px invert($color: white);
+}
