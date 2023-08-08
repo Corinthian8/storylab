@@ -10,6 +10,9 @@ p {
   color: white;
 }
 
+.center-text {
+  text-align: center;
+}
 .script-body{
   border: 1px solid white;
   background-color: black;
@@ -19,6 +22,10 @@ p {
 .form-label {
   color: white;
   padding: 10px;
+}
+
+.form-label-options {
+  font-size: 20px;
 }
 
 .form-control {
