@@ -53,7 +53,7 @@ Host (voice-over): "Thanks for watching!"
 [OUTRO]
 (Upbeat music fades out, and the screen fades to black.)
     },
-  sample_videos: ['https://www.youtube.com/watch?v=Z_Y3mcxC-0I', 'https://www.youtube.com/watch?v=OIdDGqlr6Xc']
+  sample_videos: ['vgZvlLkFeAs', '8UKikrUZg7Q', 'wmb5AmE4TUs']
 )
 
 puts "Blueprint with id :#{comparison.id} has been created"
