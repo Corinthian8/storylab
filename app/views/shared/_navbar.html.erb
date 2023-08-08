@@ -19,7 +19,7 @@
           <% if current_user&.avatar&.attached? %>
             <%= cl_image_tag current_user.avatar.key, width: 40, height: 40, :gravity=>"face", :crop=>"thumb", class: "avatar", alt: "dropdown menu" %>
           <% else %>
-              <%= image_tag "https://t4.ftcdn.net/jpg/00/23/72/59/240_F_23725944_W2aSrg3Kqw3lOmU4IAn7iXV88Rnnfch1.jpg", class: "avatar" %>
+              <%= image_tag "https://t4.ftcdn.net/jpg/00/23/72/59/240_F_23725944_W2aSrg3Kqw3lOmU4IAn7iXV88Rnnfch1.jpg", class: "avatar-generic" %>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
