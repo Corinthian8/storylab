@@ -6,7 +6,7 @@
 <%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
   <%= f.input :topic %>
   <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
-  <%= f.submit %>
+  <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
 <% end %>
 
 </div>
