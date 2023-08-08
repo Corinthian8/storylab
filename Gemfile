@@ -55,6 +55,7 @@ gem 'font-awesome-sass', '~> 6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'httparty'
 gem "cloudinary"
+gem "httparty"
 
 
 group :development, :test do
