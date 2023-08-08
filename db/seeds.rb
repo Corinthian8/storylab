@@ -53,10 +53,18 @@ Host (voice-over): "Thanks for watching!"
 [OUTRO]
 (Upbeat music fades out, and the screen fades to black.)
     },
-  sample_videos: ['https://www.youtube.com/watch?v=Z_Y3mcxC-0I', 'https://www.youtube.com/watch?v=OIdDGqlr6Xc']
+  sample_videos: ['vgZvlLkFeAs', '8UKikrUZg7Q', 'wmb5AmE4TUs']
 )
 
 puts "Blueprint with id :#{comparison.id} has been created"
+
+commentary = Blueprint.create!(
+  name: "Commentary",
+  prompt_template: "Script a reaction video to the indicated topic. It should include initial impressions, emotional responses, and thoughtful commentary.",
+  sample_videos: []
+)
+
+puts "Blueprint with id :#{commentary.id} has been created"
 
 puts "Creating Scripts..."
 

@@ -1,12 +1,32 @@
-<%# app/views/blueprints/show.html.erb %>
-<div class="container">
-  <h1>Blueprints#show</h1>
-  <p>Find me in app/views/blueprints/show.html.erb</p>
-
-<%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
-  <%= f.input :topic %>
-  <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
-  <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
-<% end %>
-
+<div class="container py-4">
+  <div class="row pb-4">
+    <div class="col-6" data-controller="video-player" data-target="thumbnails">
+      <div class="d-flex justify-content-between my-4">
+        <% @blueprint.sample_videos.each do |video| %>
+          <%= image_tag "https://i.ytimg.com/vi/#{video}/hqdefault.jpg",
+          id: "#{video}",
+          class: "small-thumbnail",
+          data: { action: "click->video-player#play"} %>
+        <% end %>
+      </div>
+      <iframe class="py-2" data-video-player-target="video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop muted playsinline></iframe>
+    </div>
+    <div class="col-6 text-center">
+      <h1><%= @blueprint.name %></h1>
+      <div class="text-cover">
+        <p><%= @blueprint.prompt_template[0..1500] %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <div class="container">
+        <%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
+          <%= f.input :topic %>
+          <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
+          <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
