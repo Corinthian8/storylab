@@ -58,6 +58,14 @@ Host (voice-over): "Thanks for watching!"
 
 puts "Blueprint with id :#{comparison.id} has been created"
 
+commentary = Blueprint.create!(
+  name: "Commentary",
+  prompt_template: "Script a reaction video to the indicated topic. It should include initial impressions, emotional responses, and thoughtful commentary.",
+  sample_videos: []
+)
+
+puts "Blueprint with id :#{commentary.id} has been created"
+
 puts "Creating Scripts..."
 
 testscript = Script.create!(
