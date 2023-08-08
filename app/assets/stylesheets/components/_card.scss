@@ -118,3 +118,9 @@
   @media (max-width: 767px) {}
 
 }
+
+.text-cover p {
+  background: -webkit-linear-gradient(90deg,#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

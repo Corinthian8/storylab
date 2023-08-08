@@ -1,0 +1,14 @@
+.small-thumbnail {
+  height: 100%;
+  width: 30%;
+  box-shadow: 2px 2px 15px rgb(159, 159, 159);
+}
+
+.small-thumbnail:hover {
+  opacity: 90%;
+  box-shadow: 2px 2px 25px rgb(144, 144, 144);
+}
+
+.large-thumbnail {
+  box-shadow: 2px 2px 30px rgb(144, 144, 144);
+}
