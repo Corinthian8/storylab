@@ -1,0 +1,50 @@
+.body{
+  background-color: black;
+  border-radius: 5px;
+}
+
+p {
+  color: white;
+}
+
+.script-body{
+  border: 1px solid white;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.form-label {
+  color: white;
+  padding: 10px;
+}
+
+.form-control {
+  background-color: black;
+  color: white;
+}
+
+.algin-form {
+  border-color:black;
+}
+
+.container-options {
+  background-color: gray;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-direction:column;
+}
+
+.btn-primary {
+  border-radius: 10px;
+  background-color: orange;
+  border: 1px solid black;
+}
+
+.button-submit {
+  text-align: center;
+  margin: 10px;
+}
