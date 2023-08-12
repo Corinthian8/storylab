@@ -25,20 +25,21 @@
   align-items: center;
   text-align: center;
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #efe337;
-  border-color: black;
+  width: 400px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 1px darkblue;
   color: black;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+  background-color: white;
+  border: 2px;
+  border: white;
+  border-radius: 4px;
+  opacity: 80%;
   transition: background-color 0.3s ease;
 }
 
 .btn-readscript:hover {
-  background-color: yellow;
+  background-color: gold;
   border-color: black;
 }
 
