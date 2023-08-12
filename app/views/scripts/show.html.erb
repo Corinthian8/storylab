@@ -21,47 +21,18 @@
     <div class="col-3">
       <div class="card-options" style="width: 20rem;">
         <div class="container-options p-3">
-          <div class="center-text">
-            <h2>Options</h2>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormSelect1" class="form-label-options">Duration</label>
-            <select class="form-select" id="exampleFormSelect1">
-              <option value="1">5minutes</option>
-              <option value="2">10minutes</option>
-              <option value="3">15minutes</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormSelect1" class="form-label-options">Tone</label>
-            <select class="form-select" id="exampleFormSelect1">
-              <option value="1">Neutral</option>
-              <option value="2">Funny</option>
-              <option value="3">Emotional</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormSelect1" class="form-label-options">Focus</label>
-            <select class="form-select" id="exampleFormSelect1">
-              <option value="1">Select item1</option>
-              <option value="2">Select item2</option>
-              <option value="3">Select item3</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormSelect1" class="form-label-options">Target</label>
-            <select class="form-select" id="exampleFormSelect1">
-              <option value="1">Select item1</option>
-              <option value="2">Select item2</option>
-              <option value="3">Select item3</option>
-            </select>
-          </div>
-          <div class="button-submit">
-            <button type="submit" class="btn btn-primary">GENERATE</button>
-          </div>
-        </form>
+          <h2>Options</h2>
+          <%= simple_form_for [@script], url: script_path(@script) do |f| %>
+            <%= f.input :duration do %>
+              <%= f.select :duration, [ ["5 minutes", "1"], ["10 minutes", "2"], ["15 minutes", "3"] ] %>
+            <% end %>
+            <%= f.input :tone do %>
+              <%= f.select :tone, [ ["Neutral", "1"], ["Funny", "2"], ["Emotional", "3"] ] %>
+            <% end %>
+            <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
