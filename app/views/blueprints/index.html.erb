@@ -1,19 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="col text-center mb-5">
-      <h1 class="display-4 font-weight-bolder">Yoo look at these sick video formats</h1>
-      <p class="lead">They're pretty cool right?</p>
-    </div>
-  </div>
-  <div class="blueprints-index">
-    <section class="wrapper">
-      <div class="container">
-        <div class="row">
-          <% @blueprints.each do |blueprint| %>
-            <%= render blueprint %>
-          <% end %>
+  <br>
+  <br>
+  <h2>Choose a blueprint below to get started</h2>
+    <div class="blueprints-index">
+      <section class="wrapper">
+        <div class="container">
+          <div class="row">
+            <% @blueprints.each do |blueprint| %>
+              <%= render blueprint %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
 </div>
