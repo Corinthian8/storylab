@@ -1,0 +1,21 @@
+<div class="scripts-container">
+        <div class="card">
+            <div class="script-date">
+              <h5 class="card-header"><%= script.updated_at.strftime("%Y-%m-%d") %></h5>
+            </div>
+
+            <div class="card-body">
+                  <div class="scripts-description">
+                      <h1 class="card-title"><strong><%= script.name %></strong></h1>
+                      <h1 class="card-title"><%= script.topic %></h1>
+                      <p class="card-text"><strong><%= script.blueprint.name %></strong></p>
+                      <p class="card-text"><i><strong><%= script.script_body.truncate(300)%></strong></i></p>
+                  </div>
+    　　　　　　
+                  <div class ="btn-viewscript">
+                      <%= link_to "View full script", script_path(script), class: "btn-readscript btn" %>
+                  </div>
+            </div>
+
+        </div>
+</div>
