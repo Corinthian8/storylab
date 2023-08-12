@@ -1,10 +1,10 @@
 .btn-home {
-  width: 500px;
-  height: 60px;
-  font-size: 2rem;
+  width: 400px;
+  height: 50px;
+  font-size: 1.5rem;
   text-shadow: 1px 1px 1px darkblue;
   color: black;
-  background-image: linear-gradient(to right, $grey-gradation);
+  background-color: white;
   border: 2px;
   border: white;
   border-radius: 4px;
@@ -13,5 +13,5 @@
 
 .btn-home:hover {
   opacity: 100%;
-  box-shadow: 2px 2px 10px darkgrey;
+  background-color: gold;
 }
