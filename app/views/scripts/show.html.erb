@@ -1,73 +1,67 @@
 <div class="container script-show justify-content-left ">
   <h1>This is script for you!</h1>
-<div class="row">
-  <div class="col-9">
-  <div class="bg-black rounded-md p-3 shadow-md">
-  <form>
-    <div class="script-body">
-      <h2><label for="exampleInputTitle" class="form-label">Title</label></h2>
-      <p><%= @script.topic %><p>
-
-      <h2><label for="exampleInputScript" class="form-label">Scripts</label></h2>
-      <p><%= raw @script.script_body.gsub("\n", '<br>') %><p>
-  </div>
-  <div class="button-submit">
-    <button type="submit" class="btn btn-primary">Download</button>
-    <button type="submit" class="btn btn-primary">Edit</button>
-  </div>
-</form>
-</div>
-</div>
-
-<div class="col-3">
-<div class="card-options" style="width: 20rem;">
-  <div class="container-options p-3">
-    <div class="center-text">
-      <h2>Options</h2>
+  <div class="row">
+    <div class="col-9">
+      <div class="bg-black rounded-md p-3 shadow-md">
+        <form data-controller="clipboard">
+          <div class="script-body">
+            <h2><label for="Title" class="form-label">Title</label></h2>
+            <p><%= @script.topic %></p>
+            <h2><label for="Script" class="form-label">Script</label></h2>
+            <p data-clipboard-target="source"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
+          </div>
+          <div class="button-submit">
+            <button type="submit" class="btn btn-primary">Download</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleFormSelect1" class="form-label-options">Duration</label>
-        <select class="form-select" id="exampleFormSelect1">
-          <option value="1">5minutes</option>
-          <option value="2">10minutes</option>
-          <option value="3">15minutes</option>
-        </select>
-  </div>
-
-  <div class="mb-3">
-        <label for="exampleFormSelect1" class="form-label-options">Tone</label>
-        <select class="form-select" id="exampleFormSelect1">
-          <option value="1">Neutral</option>
-          <option value="2">Funny</option>
-          <option value="3">Emotional</option>
-        </select>
-  </div>
-
-  <div class="mb-3">
-        <label for="exampleFormSelect1" class="form-label-options">Focus</label>
-        <select class="form-select" id="exampleFormSelect1">
-          <option value="1">Select item1</option>
-          <option value="2">Select item2</option>
-          <option value="3">Select item3</option>
-        </select>
-  </div>
-
-  <div class="mb-3">
-        <label for="exampleFormSelect1" class="form-label-options">Target</label>
-        <select class="form-select" id="exampleFormSelect1">
-          <option value="1">Select item1</option>
-          <option value="2">Select item2</option>
-          <option value="3">Select item3</option>
-        </select>
-  </div>
-
-
-    <div class="button-submit">
-        <button type="submit" class="btn btn-primary">GENERATE</button>
+    <div class="col-3">
+      <div class="card-options" style="width: 20rem;">
+        <div class="container-options p-3">
+          <div class="center-text">
+            <h2>Options</h2>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormSelect1" class="form-label-options">Duration</label>
+            <select class="form-select" id="exampleFormSelect1">
+              <option value="1">5minutes</option>
+              <option value="2">10minutes</option>
+              <option value="3">15minutes</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormSelect1" class="form-label-options">Tone</label>
+            <select class="form-select" id="exampleFormSelect1">
+              <option value="1">Neutral</option>
+              <option value="2">Funny</option>
+              <option value="3">Emotional</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormSelect1" class="form-label-options">Focus</label>
+            <select class="form-select" id="exampleFormSelect1">
+              <option value="1">Select item1</option>
+              <option value="2">Select item2</option>
+              <option value="3">Select item3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormSelect1" class="form-label-options">Target</label>
+            <select class="form-select" id="exampleFormSelect1">
+              <option value="1">Select item1</option>
+              <option value="2">Select item2</option>
+              <option value="3">Select item3</option>
+            </select>
+          </div>
+          <div class="button-submit">
+            <button type="submit" class="btn btn-primary">GENERATE</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </form>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </div>
