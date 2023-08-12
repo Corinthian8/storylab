@@ -22,9 +22,9 @@ puts 'Creating Blueprints...'
 
 comparison = Blueprint.create!(
   name: 'Comparison',
-  prompt_template: %{
+  prompt_template: %(
     "Please generate a detailed script comparing the features and specifications of the indicated items, highlighting the improvements and differences between them."
-    },
+    ),
   sample_videos: %w[vgZvlLkFeAs 8UKikrUZg7Q wmb5AmE4TUs]
 )
 
@@ -33,7 +33,7 @@ puts "Blueprint with id :#{comparison.id} has been created"
 commentary = Blueprint.create!(
   name: 'Commentary',
   prompt_template: 'Script a reaction video to the indicated topic. It should include initial impressions, emotional responses, and thoughtful commentary.',
-  sample_videos: ['zIqR43D4CwI', 'uPX1ObBBt_U', 'exm5iJirkIo']
+  sample_videos: %w[zIqR43D4CwI uPX1ObBBt_U exm5iJirkIo]
 )
 
 puts "#{commentary.name} blueprint has been created"
@@ -42,7 +42,7 @@ no_experience = Blueprint.create!(
   name: 'I tried [X] with NO experience',
   prompt_template: "Script a video about attempting the indicated topic without having any prior experience. Make sure that the narrator covers the experience step by step, their impressions and emotional response. Please ensure it’s engaging and suitable for a diverse audience.
   The title of the video should be something like 'I attempted [topic] with NO experience', or 'I went [topic] with NO experience'.",
-  sample_videos: ['z2lcoeF0U_Y', 'sPsxnd-jKZE', 'ftwysv8-gx8']
+  sample_videos: %w[z2lcoeF0U_Y sPsxnd-jKZE ftwysv8-gx8]
 )
 
 puts "#{no_experience.name} blueprint has been created"
