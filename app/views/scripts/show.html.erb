@@ -8,7 +8,7 @@
             <h2><label for="Title" class="form-label">Title</label></h2>
             <p><%= @script.topic %></p>
             <h2><label for="Script" class="form-label">Script</label></h2>
-            <p data-clipboard-target="source"><%= raw @script.script_body.gsub("\n", '<br>').gsub("/n", '<br>') %></p>
+            <p data-clipboard-target="source"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
           </div>
           <div class="button-submit">
             <button type="submit" class="btn btn-primary">Download</button>
