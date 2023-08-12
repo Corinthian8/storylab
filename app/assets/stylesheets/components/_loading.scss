@@ -19,6 +19,7 @@ Change this to whatever you want and spinner elements will size to match. */
 #submit-button:focus, #submit-button:disabled {
   outline: none;
   background: #aaa;
+  cursor: not-allowed;
 }
 
 /* This is the space for the spinner to appear, applied to the button */
