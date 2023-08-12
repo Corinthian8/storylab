@@ -1,86 +1,11 @@
-
 <div class="container scripts-index">
-  <h1>Welcome to Storylab</h1>
-  <h2>Scripts dashboard</h2>
-    <form action="#" class="search-form-012">
-        <label>
-            <input type="text" placeholder="Search script">
-        </label>
-        <button type="submit" aria-label="search"></button>
-    </form>
-
-      <div class="categories-tag">
-            <ul class="cp_tag01">
-                <li><a href="#"><%=@blueprint.name%></a></li>
-                <li><a href="#"><%=@blueprint.name%></a></li>
-                <li><a href="#"><%=@blueprint.name%></a></li>
-            </ul>
-      </div>
-    　　
-<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row">
       <div class="col">
         <div class="cp_card02">
-                  <div class="photo photo1"></div>
-                  <ul class="details">
-                    <li class="date">Last updated date 2023.08/</li>
-                    <li class="tags">
-                      <ul>
-                        <li><a href="#">Delete</a></li>
-                        <li><a href="#">Edit</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <div class="description">
-                    <h1>Japanese food</h1>
-                    <h2>#Comparison</h2>
-                    <p class="text">Hello there, adventurers! Welcome back to our channel. If you're new here, make sure you hit t</p>
-                    <a href="#">Read full script</a>
-                  </div>
-          </div>
+          <% @scripts.each do |script| %>
+              <%= render "script", script: script %>
+          <% end %>
+        </div>
       </div>
-
-    <div class="col">
-        <div class="cp_card02">
-                  <div class="photo photo1"></div>
-                  <ul class="details">
-                    <li class="date">Last updated date 2023.08/</li>
-                    <li class="tags">
-                      <ul>
-                        <li><a href="#">Delete</a></li>
-                        <li><a href="#">Edit</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <div class="description">
-                    <h1>Japanese food</h1>
-                    <h2>#Comparison</h2>
-                    <p class="text">Hello there, adventurers! Welcome back to our channel. If you're new here, make sure you hit t</p>
-                    <a href="#">Read full script</a>
-                  </div>
-          </div>
-      </div>
-
-    <div class="col">
-        <div class="cp_card02">
-                  <div class="photo photo1"></div>
-                  <ul class="details">
-                    <li class="date">Last updated date 2023.08/</li>
-                    <li class="tags">
-                      <ul>
-                        <li><a href="#">Delete</a></li>
-                        <li><a href="#">Edit</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <div class="description">
-                    <h1>Japanese food</h1>
-                    <h2>#Comparison</h2>
-                    <p class="text">Hello there, adventurers! Welcome back to our channel. If you're new here, make sure you hit t Script body Script body Script body  body Script body Script body ...</p>
-                    <a href="#">Read full script</a>
-                  </div>
-          </div>
-      </div>
-
-
-    </div>
+　　 </div>
 </div>
