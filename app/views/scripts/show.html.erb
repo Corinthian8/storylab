@@ -1,13 +1,10 @@
 <div class="container script-show justify-content-left ">
-  <h1>This is script for you!</h1>
   <div class="row">
     <div class="col-9">
       <div class="bg-black rounded-md p-3 shadow-md">
         <form data-controller="clipboard">
           <div class="script-body">
-            <h2><label for="Title" class="form-label">Title</label></h2>
-            <p><%= @script.topic %></p>
-            <h2><label for="Script" class="form-label">Script</label></h2>
+            <h2><label for="Script" class="form-label">Draft Script</label></h2>
             <p data-clipboard-target="source"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
           </div>
           <div class="button-submit">
