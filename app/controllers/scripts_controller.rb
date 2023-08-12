@@ -2,7 +2,7 @@
 
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
-  before_action :set_script, only: [:show]
+  before_action :set_script, only: [:show, :update]
 
   def index
     @scripts = Script.where(user: current_user)
@@ -22,6 +22,18 @@ class ScriptsController < ApplicationController
       redirect_to script_path(@script)
     else
       render 'blueprints/show'
+    end
+  end
+
+  def update
+    if @script.update(script_params)
+      @script.regenerate_script
+      render :show
+      flash[:notice] = "Script is being regenerated"
+      # start job that calls
+    else
+      render :show
+      flash[:alert] = "Script was not successfully updated"
     end
   end
 
