@@ -25,12 +25,13 @@
           <h2>Options</h2>
           <%= simple_form_for [@script], url: script_path(@script) do |f| %>
             <%= f.input :duration do %>
-              <%= f.select :duration, [ ["5 minutes", "1"], ["10 minutes", "2"], ["15 minutes", "3"] ] %>
+              <%= f.select :duration, [ [3, "1"], [5, "2"], [8, "3"], [10, "4"], [12, "5"], [15, "6"] ] %>
+              <%= f.label :duration, "(in minutes)" %>
             <% end %>
             <%= f.input :tone do %>
-              <%= f.select :tone, [ ["Neutral", "1"], ["Funny", "2"], ["Emotional", "3"] ] %>
+              <%= f.select :tone, [ ["Cheerful", "1"], ["Educational", "2"], ["Emotional", "3"], ["Humorous", "4"], ["Inspirational", "5"], ["Neutral", "6"], ["Playful", "7"] ] %>
             <% end %>
-            <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
+            <%= f.submit 'regenerate', :class => 'spinner', :id => 'submit-button' %>
           <% end %>
         </div>
       </div>
