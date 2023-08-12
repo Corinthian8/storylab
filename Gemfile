@@ -49,7 +49,7 @@ gem 'sassc-rails'
 # gem "image_processing", "~> 1.2"
 
 gem 'autoprefixer-rails'
-gem 'bootstrap', '~> 5.2'
+# gem 'bootstrap', '~> 5.2'
 gem 'devise'
 gem 'font-awesome-sass', '~> 6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
