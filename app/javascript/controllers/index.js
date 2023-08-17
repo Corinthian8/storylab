@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import ClipboardController from "./clipboard_controller"
 application.register("clipboard", ClipboardController)
 
@@ -15,3 +18,6 @@ application.register("script-update", ScriptUpdateController)
 
 import VideoPlayerController from "./video_player_controller"
 application.register("video-player", VideoPlayerController)
+
+import EditableTextController from "./editable_text_controller";
+application.register("editable-text", EditableTextController);

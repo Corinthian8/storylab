@@ -43,7 +43,7 @@ class ScriptsController < ApplicationController
   private
 
   def script_params
-    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id)
+    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos)
   end
 
   def set_script
