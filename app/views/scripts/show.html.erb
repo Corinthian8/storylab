@@ -32,6 +32,9 @@
           <% end %>
         </div>
       </div>
+        <% @script.pexels_videos.each do |vid| %>
+          <%= video_tag vid, :size => "320x240", :controls => false, autoplay: :autoplay, muted: :muted, loop: :loop %>
+        <% end %>
     </div>
   </div>
 </div>

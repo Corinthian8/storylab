@@ -176,6 +176,8 @@ GEM
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pexels (0.5.0)
+      requests (~> 1.0.2)
     pg (1.5.3)
     public_suffix (5.0.3)
     puma (5.6.6)
@@ -216,6 +218,7 @@ GEM
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
+    requests (1.0.2)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -296,6 +299,7 @@ DEPENDENCIES
   httparty
   jbuilder
   jsbundling-rails
+  pexels
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.6)

@@ -55,7 +55,7 @@ gem 'devise'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'httparty'
 gem "cloudinary"
-gem "httparty"
+gem "pexels"
 
 
 group :development, :test do

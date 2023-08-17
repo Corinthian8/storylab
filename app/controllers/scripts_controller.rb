@@ -8,7 +8,14 @@ class ScriptsController < ApplicationController
     @scripts = Script.where(user: current_user)
   end
 
-  def show; end
+  def show
+    pexels = Pexels::Client.new().videos.search(@script.topic,
+    page: 1, per_page: 6, size: :medium, orientation: :landscape)
+    pexels.each do |vid|
+      @script.pexels_videos << vid.files.first.link
+    end
+    @script.pexels_videos
+  end
 
   def create
     @script = Script.new(script_params)
@@ -46,4 +53,9 @@ class ScriptsController < ApplicationController
   def set_script
     @script = Script.find(params[:id])
   end
+
+  # def pexels
+  #   client = Pexels::Client.new()
+  #   video_search = client.videos.search(@script.topic, page: 1, per_page: 5, size: :medium, orientation: :landscape)
+  # end
 end
