@@ -18,3 +18,6 @@ application.register("script-update", ScriptUpdateController)
 
 import VideoPlayerController from "./video_player_controller"
 application.register("video-player", VideoPlayerController)
+
+import EditableTextController from "./editable_text_controller";
+application.register("editable-text", EditableTextController);
