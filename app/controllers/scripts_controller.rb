@@ -2,20 +2,13 @@
 
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
-  before_action :set_script, only: [:show, :update]
+  before_action :set_script, only: %i[show update]
 
   def index
     @scripts = Script.where(user: current_user)
   end
 
-  def show
-    pexels = Pexels::Client.new().videos.search(@script.topic,
-    page: 1, per_page: 6, size: :medium, orientation: :landscape)
-    pexels.each do |vid|
-      @script.pexels_videos << vid.files.first.link
-    end
-    @script.pexels_videos
-  end
+  def show; end
 
   def create
     @script = Script.new(script_params)
@@ -25,6 +18,12 @@ class ScriptsController < ApplicationController
       The video should have a duration of around #{@script.duration || '8'} minutes.
       Its tone should be #{@script.tone || 'neutral'}.
       Create it by following this prompt: '#{@script.blueprint.prompt_template}'")
+    pexels = Pexels::Client.new.videos.search(@script.topic,
+                                              page: 1, per_page: 6, size: :medium, orientation: :landscape)
+    @script.pexels_videos = []
+    pexels.each do |vid|
+      @script.pexels_videos << vid.files.first.link
+    end
     if @script.save
       redirect_to script_path(@script)
     else
@@ -36,11 +35,11 @@ class ScriptsController < ApplicationController
     if @script.update(script_params)
       @script.regenerate_script
       render :show
-      flash[:notice] = "Script is being regenerated"
+      flash[:notice] = 'Script is being regenerated'
       # start job that calls
     else
       render :show
-      flash[:alert] = "Script was not successfully updated"
+      flash[:alert] = 'Script was not successfully updated'
     end
   end
 
