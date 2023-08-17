@@ -8,7 +8,10 @@ class ScriptsController < ApplicationController
     @scripts = Script.where(user: current_user)
   end
 
-  def show; end
+  def show
+  @pexels_videos = Pexels::Client.new.videos.search(@script.topic,
+                                                    page: 1, per_page: 6, size: :medium, orientation: :landscape)
+  end
 
   def create
     @script = Script.new(script_params)
@@ -18,12 +21,6 @@ class ScriptsController < ApplicationController
       The video should have a duration of around #{@script.duration || '8'} minutes.
       Its tone should be #{@script.tone || 'neutral'}.
       Create it by following this prompt: '#{@script.blueprint.prompt_template}'")
-    pexels = Pexels::Client.new.videos.search(@script.topic,
-                                              page: 1, per_page: 6, size: :medium, orientation: :landscape)
-    @script.pexels_videos = []
-    pexels.each do |vid|
-      @script.pexels_videos << vid.files.first.link
-    end
     if @script.save
       redirect_to script_path(@script)
     else
