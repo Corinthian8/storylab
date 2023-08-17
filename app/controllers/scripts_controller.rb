@@ -9,7 +9,8 @@ class ScriptsController < ApplicationController
   end
 
   def show
-    pexels = Pexels::Client.new().videos.search(@script.topic, page: 1, per_page: 6, size: :medium, orientation: :landscape)
+    pexels = Pexels::Client.new().videos.search(@script.topic,
+    page: 1, per_page: 6, size: :medium, orientation: :landscape)
     pexels.each do |vid|
       @script.pexels_videos << vid.files.first.link
     end
