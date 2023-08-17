@@ -1,6 +1,4 @@
-// app/javascript/controllers/editable_text_controller.js
 import { Controller } from "@hotwired/stimulus"
-
 
 export default class extends Controller {
   static targets = ["editableText", "editButton"];
@@ -48,7 +46,27 @@ export default class extends Controller {
 
         // Enable the Edit button again
         this.editButtonTarget.disabled = false;
+
+        // Send the updated content to the server using Ajax
+        const scriptId = YOUR_SCRIPT_ID;
+        fetch(`/scripts/${scriptId}`, {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").getAttribute("content"),
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ script_body: editedText })
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          console.log(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
       });
-    });
+    })
   }
 }
