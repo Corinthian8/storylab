@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_030341) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_034731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_030341) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "pexels_videos", array: true
     t.index ["blueprint_id"], name: "index_scripts_on_blueprint_id"
     t.index ["user_id"], name: "index_scripts_on_user_id"
   end
