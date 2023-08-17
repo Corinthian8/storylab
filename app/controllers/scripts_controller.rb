@@ -2,22 +2,28 @@
 
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
-  before_action :set_script, only: [:show, :update]
+  before_action :set_script, only: %i[show update]
 
   def index
     @scripts = Script.where(user: current_user)
   end
 
-  def show; end
+  def show
+    # if @script.script_body == ''
+    #   @script.script_body = generate_script
+    #   render :show if @script.save
+    # end
+    if @script.script_body.blank?
+      # Start a background job to generate the script
+      GenerateScriptJob.perform_later(@script)
+      render :show
+    end
+  end
 
   def create
     @script = Script.new(script_params)
     @script.user = current_user
-    @script.script_body = ChatgptService.call("
-      Create a 'technical script' for a YouTube video about #{@script.topic}.
-      The video should have a duration of around #{@script.duration || '8'} minutes.
-      Its tone should be #{@script.tone || 'neutral'}.
-      Create it by following this prompt: '#{@script.blueprint.prompt_template}'")
+    @script.script_body = ''
     if @script.save
       redirect_to script_path(@script)
     else
@@ -29,11 +35,11 @@ class ScriptsController < ApplicationController
     if @script.update(script_params)
       @script.regenerate_script
       render :show
-      flash[:notice] = "Script is being regenerated"
+      flash[:notice] = 'Script is being regenerated'
       # start job that calls
     else
       render :show
-      flash[:alert] = "Script was not successfully updated"
+      flash[:alert] = 'Script was not successfully updated'
     end
   end
 
@@ -46,4 +52,11 @@ class ScriptsController < ApplicationController
   def set_script
     @script = Script.find(params[:id])
   end
+
+  # def generate_script(script)
+  #   ChatgptService.call("Create a 'technical script' for a YouTube video about #{script.topic}.
+  #   The video should have a duration of around #{script.duration || '8'} minutes.
+  #   Its tone should be #{script.tone || 'neutral'}.
+  #   Create it by following this prompt: '#{script.blueprint.prompt_template}'.")
+  # end
 end
