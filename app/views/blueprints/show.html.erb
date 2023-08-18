@@ -13,8 +13,7 @@
     </div>
     <div class="col-6 text-center">
       <h1><%= @blueprint.name %></h1>
-      <div class="text-cover">
-        <p><%= @blueprint.prompt_template[0..1500] %></p>
+      <div data-controller="word-cloud" data-action="onload->word-cloud#connect" id="my_dataviz" class="text-cover">
       </div>
     </div>
   </div>
