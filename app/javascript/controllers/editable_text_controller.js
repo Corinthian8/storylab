@@ -48,9 +48,9 @@ export default class extends Controller {
         this.editButtonTarget.disabled = false;
 
         // Send the updated content to the server using Ajax
-        const scriptId = YOUR_SCRIPT_ID;
-        fetch(`/scripts/${scriptId}`, {
-          method: "POST",
+        // const scriptId = @script = Script.find(params[:id]);
+        fetch(window.location.pathname, {
+          method: "PATCH",
           headers: {
             "Accept": "application/json",
             "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").getAttribute("content"),

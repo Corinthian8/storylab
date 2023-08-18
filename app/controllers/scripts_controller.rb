@@ -27,20 +27,20 @@ class ScriptsController < ApplicationController
 
   def update
     if @script.update(script_params)
-      @script.regenerate_script
+      @script.regenerate_script unless script_params[:script_body].present?
       render :show
-      flash[:notice] = "Script is being regenerated"
+      flash[:notice] = 'Script is being regenerated'
       # start job that calls
     else
       render :show
-      flash[:alert] = "Script was not successfully updated"
+      flash[:alert] = 'Script was not successfully updated'
     end
   end
 
   private
 
   def script_params
-    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id)
+    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos, :script_body)
   end
 
   def set_script
