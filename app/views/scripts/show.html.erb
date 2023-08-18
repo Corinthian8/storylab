@@ -33,9 +33,11 @@
         </div>
       </div>
         <% @pexels_videos.each do |vid| %>
-          <% hd_video = vid.files.find { |file| file.quality == 'hd' } %>
+          <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
           <% video_url = hd_video.link %>
-          <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
+          <%= link_to video_url, target: :_blank do %>
+            <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
+          <% end %>
         <% end %>
       </div>
     </div>
