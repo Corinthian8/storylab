@@ -55,7 +55,10 @@ gem 'devise'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'httparty'
 gem "cloudinary"
-gem "httparty"
+gem "pexels"
+gem "ruby-openai", "~> 4.0.0"
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"
 
 
 group :development, :test do

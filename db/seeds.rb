@@ -53,7 +53,7 @@ pitch = Script.create!(
   name: "StoryLab's Pitch",
   user_id: testuser.id,
   blueprint_id: commentary.id,
-  topic: 'StoryLab',
+  topic: 'Startup Pitch',
   script_body: "[Opening shot: A cheerful, colorful interface of the StoryLab web-app with the words \"Unleash Your Inner Creator!\" splashed across the screen.]\n
   Narrator (with excitement): Hey there, fellow content creators and aspiring YouTube stars! Are you tired of staring at a blank screen, struggling to come up with the perfect script for your next YouTube masterpiece? Well, fret not, because I'm about to introduce you to your new secret weapon: StoryLab!\n\n
   [Cut to index page: User's cursor hovers over a variety of template options, each with a catchy title.]\n
@@ -88,7 +88,7 @@ testscript = Script.create!(
   name: 'TestScript',
   user_id: testuser.id,
   blueprint_id: comparison.id,
-  topic: 'TestTopic',
+  topic: 'Test',
   script_body: 'Some text here generated with AI',
   tone: 'informative',
   duration: 10

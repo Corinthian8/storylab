@@ -13,8 +13,7 @@
     </div>
     <div class="col-6 text-center">
       <h1><%= @blueprint.name %></h1>
-      <div class="text-cover">
-        <p><%= @blueprint.prompt_template[0..1500] %></p>
+      <div data-controller="word-cloud" data-action="onload->word-cloud#connect" id="my_dataviz" class="text-cover">
       </div>
     </div>
   </div>
@@ -23,6 +22,13 @@
       <div class="container">
         <%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
           <%= f.input :topic %>
+          <%= f.input :duration do %>
+            <%= f.select :duration, [ [3, "1"], [5, "2"], [8, "3"], [10, "4"], [12, "5"], [15, "6"] ] %>
+            <%= f.label :duration, "(in minutes)" %>
+          <% end %>
+          <%= f.input :tone do %>
+            <%= f.select :tone, [ ["Cheerful", "1"], ["Educational", "2"], ["Emotional", "3"], ["Humorous", "4"], ["Inspirational", "5"], ["Neutral", "6"], ["Playful", "7"] ] %>
+          <% end %>
           <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
           <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
         <% end %>
