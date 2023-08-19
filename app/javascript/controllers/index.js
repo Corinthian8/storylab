@@ -21,3 +21,6 @@ application.register("video-player", VideoPlayerController)
 
 import WordCloudController from "./word_cloud_controller"
 application.register("word-cloud", WordCloudController)
+
+import ReplaceController from "./replace_controller"
+application.register("replace", ReplaceController)
