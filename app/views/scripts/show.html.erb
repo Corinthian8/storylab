@@ -5,11 +5,12 @@
         <form data-controller="clipboard">
           <div class="script-body">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
-            <p data-clipboard-target="source" data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
+            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
+          <%# 　<button class="btn btn-primary" type="button" data-action="editable-text#save">Save</button> %>
           </div>
           <div class="button-submit">
             <button type="submit" class="btn btn-primary">Download</button>
-            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode"data-target="editable-text.editButton">Edit</button>
+            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
             <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
           </div>
         </form>

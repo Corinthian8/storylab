@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :blueprints, only: %i[index show]
   resources :scripts, only: %i[index show new create update]
+  patch '/scripts/:id', to: 'scripts#update'
   resources :chats, only: %i[create show] do
     resources :messages, only: %i[create]
   end

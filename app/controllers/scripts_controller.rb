@@ -3,6 +3,7 @@
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
   before_action :set_script, only: %i[show update]
+  skip_before_action :verify_authenticity_token
 
   def index
     @scripts = Script.where(user: current_user)
@@ -29,8 +30,16 @@ class ScriptsController < ApplicationController
 
   def update
     @pexels_videos = pexels(@script.topic)
+    if script_params['script_body']
+      @script.update(script_body: script_params['script_body'])
+
+      respond_to do |format|
+        format.html { redirect_to scripts_path }
+        format.text { render :show, locals: {script: @script}, formats: [:html] }
+      end
+    end
     if @script.update(script_params)
-      @script.regenerate_script
+      @script.regenerate_script unless script_params[:script_body].present?
       render :show
       flash[:notice] = 'Script is being regenerated'
       # start job that calls
@@ -43,7 +52,7 @@ class ScriptsController < ApplicationController
   private
 
   def script_params
-    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos)
+    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos, :script_body)
   end
 
   def set_script
