@@ -11,7 +11,7 @@ export default class extends Controller {
     var myWords = this.wordsValue
     var wordCloud = [{word: myWords[0], size: "60"}, {word: myWords[1], size: "60"},
                     {word: myWords[2], size: "50"}, {word: myWords[3], size: "50"},
-                    {word: myWords[3], size: "40"}, {word: myWords[2], size: "40"},
+                    {word: myWords[4], size: "40"}, {word: myWords[5], size: "40"},
                     {word: myWords[6], size: "30"}, {word: myWords[7], size: "30"}];
 
     // set the dimensions and margins of the graph
