@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -52,14 +54,13 @@ gem 'autoprefixer-rails'
 # gem 'bootstrap', '~> 5.2'
 gem 'devise'
 # gem 'font-awesome-sass', '~> 6.1'
-gem 'simple_form', github: 'heartcombo/simple_form'
+gem 'cloudinary'
 gem 'httparty'
-gem "cloudinary"
-gem "pexels"
-gem "ruby-openai", "~> 4.0.0"
-gem "sidekiq"
-gem "sidekiq-failures", "~> 1.0"
-
+gem 'pexels'
+gem 'ruby-openai', '~> 4.0.0'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'simple_form', github: 'heartcombo/simple_form'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

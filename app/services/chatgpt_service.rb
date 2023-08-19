@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # @note: This service is used to call the OpenAI API to generate a response to a message
 # @note: The API key is stored in the credentials file
 # @param message [String] The message to generate a response for

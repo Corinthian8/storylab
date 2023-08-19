@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/blueprints_controller.rb
 class BlueprintsController < ApplicationController
   before_action :set_blueprint, only: [:show]

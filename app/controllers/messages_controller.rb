@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   def create
     @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
     @message.chat = @chat
-    @message.role = "user"
+    @message.role = 'user'
     GetAiResponseJob.perform_later(@chat)
 
     if @message.save
       @message.broadcast_created
       head :ok
     else
-      render "chats/show", status: :unprocessable_entity
+      render 'chats/show', status: :unprocessable_entity
     end
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Blueprint < ApplicationRecord
   has_many :scripts
   validates :name, presence: true
