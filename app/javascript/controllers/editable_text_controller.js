@@ -22,16 +22,16 @@ export default class extends Controller {
 
     fetch(window.location.pathname, {
       method: "PATCH",
-      headers: {"Accept": "text/plain"},
+      headers: { "Accept": "text/plain" },
       body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   enableEditMode(event) {
@@ -47,10 +47,10 @@ export default class extends Controller {
 
     // Create a textarea element with the text and replace the paragraph element
     const textareaElement = document.createElement("textarea");
-    textareaElement.value = text;
+    textareaElement.value = text.replace(/<br>/g, '\n');
     textareaElement.style.resize = "none"; // Disable resizing
     textareaElement.style.height = "800px";
-    textareaElement.style.width = "790px";
+    textareaElement.style.width = "100%";
     pElement.replaceWith(textareaElement);
 
     // Create a "Save" button
@@ -80,11 +80,11 @@ export default class extends Controller {
       // Attach event listener to save changes when "Save" button is clicked
 
 
-        // Enable the Edit button again
-        this.editButtonTarget.disabled = false;
+      // Enable the Edit button again
+      this.editButtonTarget.disabled = false;
 
-        // Send the updated content to the server using Ajax
-        // const scriptId = @script = Script.find(params[:id]);
-      });
-    }
+      // Send the updated content to the server using Ajax
+      // const scriptId = @script = Script.find(params[:id]);
+    });
+  }
 }
