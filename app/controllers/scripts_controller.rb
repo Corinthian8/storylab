@@ -9,8 +9,7 @@ class ScriptsController < ApplicationController
   end
 
   def show
-  @pexels_videos = Pexels::Client.new.videos.search(@script.topic,
-                                                    page: 1, per_page: 6, size: :medium, orientation: :landscape)
+    @pexels_videos = pexels(@script.topic)
   end
 
   def create
@@ -29,6 +28,7 @@ class ScriptsController < ApplicationController
   end
 
   def update
+    @pexels_videos = pexels(@script.topic)
     if @script.update(script_params)
       @script.regenerate_script
       render :show
@@ -50,8 +50,8 @@ class ScriptsController < ApplicationController
     @script = Script.find(params[:id])
   end
 
-  # def pexels
-  #   client = Pexels::Client.new()
-  #   video_search = client.videos.search(@script.topic, page: 1, per_page: 5, size: :medium, orientation: :landscape)
-  # end
+  def pexels(topic)
+    Pexels::Client.new.videos.search(topic,
+                                     page: 1, per_page: 6, size: :medium, orientation: :landscape)
+  end
 end
