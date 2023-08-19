@@ -1,15 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
+import script_update_controller from "./script_update_controller";
 
 // Connects to data-controller="word-cloud"
 export default class extends Controller {
+  static values = {words: Array}
+
   connect() {
 
     // List of words
-    var myWords = [{word: "Casual", size: "20"}, {word: "Charming", size: "30"},
-                  {word: "Thought-provoking", size: "40"}, {word: "Engaging", size: "50"},
-                  {word: "Captivating", size: "30"}, {word: "Adventurous", size: "60"},
-                  {word: "Thrilling", size: "20"}, {word: "Viral", size: "80"},
-                  {word: "Intriguing", size: "70"}, {word: "Exciting", size: "60"} ]
+    var myWords = this.wordsValue
+    var wordCloud = [{word: myWords[0], size: "60"}, {word: myWords[1], size: "60"},
+                    {word: myWords[2], size: "50"}, {word: myWords[3], size: "50"},
+                    {word: myWords[3], size: "40"}, {word: myWords[2], size: "40"},
+                    {word: myWords[6], size: "30"}, {word: myWords[7], size: "30"}];
 
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 10, bottom: 10, left: 10},
@@ -28,9 +31,9 @@ export default class extends Controller {
     // Wordcloud features that are different from one word to the other must be here
     var layout = d3.layout.cloud()
       .size([width, height])
-      .words(myWords.map(function(d) { return {text: d.word, size:d.size}; }))
+      .words(wordCloud.map(function(d) { return {text: d.word, size:d.size}; }))
       .padding(5)        //space between words
-      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .rotate(function() { return ~~(Math.random() * 2) * 360; })
       .fontSize(function(d) { return d.size; })      // font size of words
       .on("end", draw);
     layout.start();
@@ -46,9 +49,9 @@ export default class extends Controller {
           .enter().append("text")
             .style("font-size", function(d) { return d.size; })
             .style("fill", "#ffd700")
-            .style("text-shadow", "1px 1px 2px grey")
+            .style("text-shadow", "1px 1px 3px grey")
             .attr("text-anchor", "middle")
-            .style("font-family", "Impact")
+            .style("font-family", "Poppins")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
