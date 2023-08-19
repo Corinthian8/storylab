@@ -47,10 +47,10 @@ export default class extends Controller {
 
     // Create a textarea element with the text and replace the paragraph element
     const textareaElement = document.createElement("textarea");
-    textareaElement.value = text;
+    textareaElement.value = text.replace(/<br>/g, '\n');
     textareaElement.style.resize = "none"; // Disable resizing
     textareaElement.style.height = "800px";
-    textareaElement.style.width = "790px";
+    textareaElement.style.width = "100%";
     pElement.replaceWith(textareaElement);
 
     // Create a "Save" button
