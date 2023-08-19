@@ -42,7 +42,6 @@ class ScriptsController < ApplicationController
       @script.regenerate_script unless script_params[:script_body].present?
       render :show
       flash[:notice] = 'Script is being regenerated'
-      # start job that calls
     else
       render :show
       flash[:alert] = 'Script was not successfully updated'
