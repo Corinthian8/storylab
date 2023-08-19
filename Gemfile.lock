@@ -132,6 +132,8 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    font-awesome-sass (6.4.2)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -322,6 +324,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  font-awesome-sass (~> 6.4.2)
   httparty
   jbuilder
   jsbundling-rails

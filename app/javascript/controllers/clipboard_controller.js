@@ -15,7 +15,7 @@ export default class ClipboardController extends Controller {
     this.sourceTarget.focus()
     var triggerElement = this.triggerTarget
     var initialHTML = triggerElement.innerHTML
-    triggerElement.innerHTML = "<i class=\"fa-solid fa-copy\"></i>"
+    triggerElement.innerHTML = "<i class=\"fa-solid fa-check\"></i>"
     setTimeout(() => {
       triggerElement.innerHTML = initialHTML
       // unfocus
