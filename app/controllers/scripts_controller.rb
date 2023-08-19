@@ -3,6 +3,7 @@
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
   before_action :set_script, only: [:show, :update]
+  skip_before_action :verify_authenticity_token
 
   def index
     @scripts = Script.where(user: current_user)
@@ -26,14 +27,30 @@ class ScriptsController < ApplicationController
   end
 
   def update
-    if @script.update(script_params)
-      @script.regenerate_script unless script_params[:script_body].present?
-      render :show
-      flash[:notice] = 'Script is being regenerated'
+
+    puts("HELLO from update")
+
+    # if @script.update(script_params)
+    #   @script.regenerate_script unless script_params[:script_body].present?
+    #   @script.update(scrxipt_params)
+    @script.update(script_body: script_params['script_body']) if script_params['script_body']
+      # respond_to do |format|
+      #   format.html { redirect_to scripts_path }
+      #   format.text { render :show, locals: { script: @script }, formats: [:html] }
+      # end
+      # render :show
+      # flash[:notice] = 'Script is being regenerated'
       # start job that calls
-    else
-      render :show
-      flash[:alert] = 'Script was not successfully updated'
+    # else
+    #   render :show
+    #   flash[:alert] = 'Script was not successfully updated'
+    # elsif
+    #   @script = Script.find(params[:id])
+    #   @script.update(edit_params)
+
+      respond_to do |format|
+        format.html { redirect_to scripts_path }
+        format.text { render :show, locals: {script: @script}, formats: [:html] }
     end
   end
 
