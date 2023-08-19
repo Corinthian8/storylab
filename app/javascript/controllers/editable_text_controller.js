@@ -22,16 +22,16 @@ export default class extends Controller {
 
     fetch(window.location.pathname, {
       method: "PATCH",
-      headers: {"Accept": "text/plain"},
+      headers: { "Accept": "text/plain" },
       body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   enableEditMode(event) {
@@ -80,11 +80,11 @@ export default class extends Controller {
       // Attach event listener to save changes when "Save" button is clicked
 
 
-        // Enable the Edit button again
-        this.editButtonTarget.disabled = false;
+      // Enable the Edit button again
+      this.editButtonTarget.disabled = false;
 
-        // Send the updated content to the server using Ajax
-        // const scriptId = @script = Script.find(params[:id]);
-      });
-    }
+      // Send the updated content to the server using Ajax
+      // const scriptId = @script = Script.find(params[:id]);
+    });
+  }
 }
