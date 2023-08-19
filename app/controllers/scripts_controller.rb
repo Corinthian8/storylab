@@ -35,7 +35,7 @@ class ScriptsController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_to scripts_path }
-        format.text { render :show, locals: {script: @script}, formats: [:html] }
+        format.text { render :show, locals: { script: @script }, formats: [:html] }
       end
     end
     if @script.update(script_params)
