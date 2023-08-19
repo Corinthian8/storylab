@@ -13,6 +13,9 @@ application.register("editable-text", EditableTextController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ScriptUpdateController from "./script_update_controller"
+application.register("script-update", ScriptUpdateController)
+
 import VideoPlayerController from "./video_player_controller"
 application.register("video-player", VideoPlayerController)
 
