@@ -2,19 +2,14 @@
 
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
-  before_action :set_script, only: [:show, :update]
+  before_action :set_script, only: %i[show update]
 
   def index
     @scripts = Script.where(user: current_user)
   end
 
   def show
-    pexels = Pexels::Client.new().videos.search(@script.topic,
-    page: 1, per_page: 6, size: :medium, orientation: :landscape)
-    pexels.each do |vid|
-      @script.pexels_videos << vid.files.first.link
-    end
-    @script.pexels_videos
+    @pexels_videos = pexels(@script.topic)
   end
 
   def create
@@ -33,29 +28,30 @@ class ScriptsController < ApplicationController
   end
 
   def update
+    @pexels_videos = pexels(@script.topic)
     if @script.update(script_params)
       @script.regenerate_script
       render :show
-      flash[:notice] = "Script is being regenerated"
+      flash[:notice] = 'Script is being regenerated'
       # start job that calls
     else
       render :show
-      flash[:alert] = "Script was not successfully updated"
+      flash[:alert] = 'Script was not successfully updated'
     end
   end
 
   private
 
   def script_params
-    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id)
+    params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos)
   end
 
   def set_script
     @script = Script.find(params[:id])
   end
 
-  # def pexels
-  #   client = Pexels::Client.new()
-  #   video_search = client.videos.search(@script.topic, page: 1, per_page: 5, size: :medium, orientation: :landscape)
-  # end
+  def pexels(topic)
+    Pexels::Client.new.videos.search(topic,
+                                     page: 1, per_page: 6, size: :medium, orientation: :landscape)
+  end
 end
