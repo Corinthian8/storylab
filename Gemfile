@@ -51,7 +51,7 @@ gem 'sassc-rails'
 gem 'autoprefixer-rails'
 # gem 'bootstrap', '~> 5.2'
 gem 'devise'
-# gem 'font-awesome-sass', '~> 6.1'
+gem "font-awesome-sass", "~> 6.4.2"
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'httparty'
 gem "cloudinary"
@@ -72,7 +72,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console'
-
+  gem "byebug"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
