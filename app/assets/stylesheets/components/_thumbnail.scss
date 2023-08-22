@@ -12,3 +12,22 @@
 .large-thumbnail {
   box-shadow: 2px 2px 30px rgb(144, 144, 144);
 }
+
+.background-matrix {
+  width: 25vw;
+  height: 255px;
+  object-fit: fill;
+  padding: 0;
+}
+
+.background-image-container {
+  background-color: black;
+
+  .row div {
+    opacity: 20%;
+    transition: opacity 0.4s ease-in;
+  }
+  .show-image {
+    opacity: 100% !important;
+  }
+}
