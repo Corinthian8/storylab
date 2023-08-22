@@ -3,10 +3,11 @@
     <div class="col-9">
       <div class="bg-black rounded-md p-3 shadow-md" data-controller="editable-text" >
         <form data-controller="clipboard">
-          <div class="script-body">
+          <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
-            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
-          <%# 　<button class="btn btn-primary" type="button" data-action="editable-text#save">Save</button> %>
+            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText" data-replace-script-target="script">
+              <%= render 'scripts/script_body', locals: { script: @script } %>
+            </p>
           </div>
           <div class="button-submit">
             <button type="submit" class="btn btn-primary">Download</button>
@@ -33,14 +34,14 @@
           <% end %>
         </div>
       </div>
-        <% @pexels_videos.each do |vid| %>
-          <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
-          <% video_url = hd_video.link %>
-          <%= link_to video_url, target: :_blank do %>
-            <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
-          <% end %>
+      <% @pexels_videos.each do |vid| %>
+        <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
+        <% video_url = hd_video.link %>
+        <%= link_to video_url, target: :_blank do %>
+          <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

@@ -12,7 +12,7 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "PostChannel", id: this.postIdValue },
-      { received: data => this.postTarget.outerHTML = data }
+      { received: data => this.postTarget.innerHTML = data }
     )
     console.log("connected to ", this.channel)
   }

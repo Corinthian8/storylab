@@ -1,7 +1,7 @@
 class PostChannel < ApplicationCable::Channel
   def subscribed
-    id = params[:id]
-    stream_for "post_#{id}"
+    script = Script.find(params[:id])
+    stream_for script
   end
 
   def unsubscribed
