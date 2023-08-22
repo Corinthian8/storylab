@@ -39,8 +39,8 @@ class ScriptsController < ApplicationController
       end
     end
     if @script.update(script_params)
-      @script.regenerate_script unless script_params[:script_body].present?
-      # GetAiResponseJob.perform(@script) unless script_params[:script_body].present?
+      # @script.regenerate_script unless script_params[:script_body].present?
+      GetAiResponseJob.perform(@script) unless script_params[:script_body].present?
       render :show
       flash[:notice] = 'Script is being regenerated'
     else
