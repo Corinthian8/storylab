@@ -20,6 +20,14 @@
   padding: 0;
 }
 
-.blacked-out {
-  opacity: 20%;
+.background-image-container {
+  background-color: black;
+
+  .row div {
+    opacity: 20%;
+    transition: opacity 0.4s ease-in;
+  }
+  .show-image {
+    opacity: 100% !important;
+  }
 }
