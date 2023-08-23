@@ -11,7 +11,7 @@ class GetAiResponseJob < ApplicationJob
       prompt = "
       Rewrite the following 'technical script' for a YouTube video about #{script.topic}:
       '#{script.script_body}'
-      Make sure the new version has a #{script.tone} tone, and the video made from this script should be #{script.duration} minutes long.")
+      Make sure the new version has a #{script.tone} tone, and the video made from this script should be #{script.duration} minutes long."
     end
     call_openai(script, prompt)
   end
@@ -42,19 +42,33 @@ class GetAiResponseJob < ApplicationJob
       new_content = chunk.dig('choices', 0, 'delta', 'content')
 
       if new_content
-        script.update(content: script.script_body + new_content)
+        script.update(script_body: script.script_body + new_content)
         # Broadcast updated message using ActionCable
-        PostChannel.broadcast_to (script,
-        ApplicationController.new.render_to_string(partial: "script/script_body", locals: {script: self})
-        # {
-        #   partial: ApplicationController.new.render_to_string(partial: "messages/script", locals: {script: self}),
-        #   script_id: self.id,
-        #   update: true
-        # }
-        )
+        PostChannel.broadcast_to(script,
+                                 ApplicationController.new.render_to_string(partial: 'script/script_body',
+                                                                            locals: { script: }))
       end
     end
   end
+
+  # def stream_proc(script)
+  #   proc do |chunk, _bytesize|
+  #     new_content = chunk.dig('choices', 0, 'delta', 'content')
+
+  #     if new_content
+  #       script.update(script_body: script.script_body + new_content)
+  #       # Broadcast updated message using ActionCable
+  #       PostChannel.broadcast_to (script,
+  #         ApplicationController.new.render_to_string(partial: "script/script_body", locals: { script: script })
+  #       # {
+  #       #   partial: ApplicationController.new.render_to_string(partial: "messages/script", locals: {script: self}),
+  #       #   script_id: self.id,
+  #       #   update: true
+  #       # }
+  #       )
+  #     end
+  #   end
+  # end
 
   # def render_message(message)
   #   ApplicationController.renderer.render(partial: 'messages/message', locals: { message: })

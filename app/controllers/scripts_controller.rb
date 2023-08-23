@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require_relative '../jobs/get_ai_response_job'
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
   before_action :set_script, only: %i[show update]
@@ -40,7 +40,7 @@ class ScriptsController < ApplicationController
     end
     if @script.update(script_params)
       # @script.regenerate_script unless script_params[:script_body].present?
-      GetAiResponseJob.perform(@script) unless script_params[:script_body].present?
+      GetAiResponseJob.perform_later(@script) unless script_params[:script_body].present?
       render :show
       flash[:notice] = 'Script is being regenerated'
     else
