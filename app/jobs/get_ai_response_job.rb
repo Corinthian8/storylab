@@ -1,7 +1,8 @@
 class GetAiResponseJob < ApplicationJob
   queue_as :default
-# instead of passing the prompt as is, we need to pass the Script instance and get the prom there
+  # instead of passing the prompt as is, we need to pass the Script instance and get the prom there
   def perform(script)
+    # byebug
     if script.script_body.empty?
       prompt = "Create a 'technical script' for a YouTube video about #{script.topic}.
       The video should have a duration of around #{script.duration || '8'} minutes.
@@ -21,7 +22,9 @@ class GetAiResponseJob < ApplicationJob
   def call_openai(script, prompt)
     # Instead of creating a message, we want to update the body of the Script instance
     # message = Message.create(role: 'assistant', content: 'Thinking...')
+    # byebug
     script.update(script_body: '')
+    puts prompt
 
     # Broadcast initial message using ActionCable
 
@@ -32,7 +35,18 @@ class GetAiResponseJob < ApplicationJob
           model: 'gpt-3.5-turbo',
           messages: [{ role: 'user', content: prompt }],
           temperature: 0.1,
-          stream: stream_proc(script)
+          stream: proc do |chunk, _bytesize|
+            new_content = chunk.dig('choices', 0, 'delta', 'content')
+            puts new_content, '####################'
+            # byebug
+            if new_content
+              script.update(script_body: script.script_body + new_content)
+              # Broadcast updated message using ActionCable
+              PostChannel.broadcast_to(script,
+                                       ApplicationController.new.render_to_string(partial: 'scripts/script_body',
+                                                                                  locals: { script: script }))
+            end
+          end
         }
       )
   end
@@ -40,13 +54,14 @@ class GetAiResponseJob < ApplicationJob
   def stream_proc(script)
     proc do |chunk, _bytesize|
       new_content = chunk.dig('choices', 0, 'delta', 'content')
+      puts new_content, '####################'
 
       if new_content
         script.update(script_body: script.script_body + new_content)
         # Broadcast updated message using ActionCable
         PostChannel.broadcast_to(script,
-        ApplicationController.new.render_to_string(partial: 'scripts/script_body',
-        locals: { script: script }))
+                                 ApplicationController.new.render_to_string(partial: 'scripts/script_body',
+                                                                            locals: { script: }))
       end
     end
   end

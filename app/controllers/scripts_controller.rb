@@ -29,12 +29,15 @@ class ScriptsController < ApplicationController
   end
 
   def update
+    # raise
     @pexels_videos = pexels(@script.topic)
 
     # Check for script regeneration
     if script_params[:script_body].blank?
+      # byebug
       GetAiResponseJob.perform_later(@script)
       flash[:notice] = 'Script is being regenerated'
+      # @script = Script.find(params[:id])
       render :show
       return
     end
