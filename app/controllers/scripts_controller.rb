@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../jobs/get_ai_response_job'
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
@@ -11,16 +12,22 @@ class ScriptsController < ApplicationController
 
   def show
     @pexels_videos = pexels(@script.topic)
+    if @script.script_body.blank?
+      GetAiResponseJob.perform_later(@script)
+      flash[:notice] = 'Script is being generated'
+      render :show
+    else
+      respond_to do |format|
+        format.html
+        format.text { render :show, locals: { script: @script }, formats: [:html] }
+      end
+    end
   end
 
   def create
     @script = Script.new(script_params)
     @script.user = current_user
-    @script.script_body = ChatgptService.call("
-      Create a 'technical script' for a YouTube video about #{@script.topic}.
-      The video should have a duration of around #{@script.duration || '8'} minutes.
-      Its tone should be #{@script.tone || 'neutral'}.
-      Create it by following this prompt: '#{@script.blueprint.prompt_template}'")
+    @script.script_body = ''
     if @script.save
       redirect_to script_path(@script)
     else
@@ -34,10 +41,8 @@ class ScriptsController < ApplicationController
 
     # Check for script regeneration
     if script_params[:script_body].blank?
-      # byebug
       GetAiResponseJob.perform_later(@script)
       flash[:notice] = 'Script is being regenerated'
-      # @script = Script.find(params[:id])
       render :show
       return
     end
