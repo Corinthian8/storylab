@@ -3,9 +3,9 @@
     <div class="col-9">
       <div class="bg-black rounded-md p-3 shadow-md" data-controller="editable-text" >
         <form data-controller="clipboard">
-          <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>">
+          <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>" data-replace-target="scriptBody">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
-            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText" data-replace-script-target="script">
+            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText">
               <%= render 'scripts/script_body', locals: { script: @script } %>
             </p>
           </div>

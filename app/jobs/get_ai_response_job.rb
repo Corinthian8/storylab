@@ -45,8 +45,8 @@ class GetAiResponseJob < ApplicationJob
         script.update(script_body: script.script_body + new_content)
         # Broadcast updated message using ActionCable
         PostChannel.broadcast_to(script,
-                                 ApplicationController.new.render_to_string(partial: 'script/script_body',
-                                                                            locals: { script: }))
+        ApplicationController.new.render_to_string(partial: 'scripts/script_body',
+        locals: { script: script }))
       end
     end
   end
