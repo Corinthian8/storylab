@@ -7,9 +7,6 @@ import { application } from "./application"
 import BackgroundSwitchController from "./background_switch_controller"
 application.register("background-switch", BackgroundSwitchController)
 
-import ChatroomSubscriptionController from "./chatroom_subscription_controller"
-application.register("chatroom-subscription", ChatroomSubscriptionController)
-
 import ClipboardController from "./clipboard_controller"
 application.register("clipboard", ClipboardController)
 
