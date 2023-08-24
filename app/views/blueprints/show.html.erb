@@ -1,6 +1,7 @@
 <div class="container py-4">
   <div class="row pb-4">
   <h1 class="pb-3 title-text"><%= @blueprint.name %></h1>
+  <h5><%= @blueprint.description %></h5>
     <div class="col-6" data-controller="video-player" data-target="thumbnails">
       <div class="d-flex justify-content-between my-4">
         <% @blueprint.sample_videos.each do |video| %>
@@ -13,10 +14,9 @@
       <iframe class="py-2" data-video-player-target="video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop muted playsinline></iframe>
     </div>
     <div class="col-6 text-center">
-      <%# <h4 class="description-text">In a few words...</h1> %>
       <div class="word-cloud-box">
         <div data-controller="word-cloud" data-action="onload->word-cloud#connect"
-        data-word-cloud-words-value="<%= @blueprint.word_cloud %>" id="my_dataviz" class="text-cover">
+        data-word-cloud-words-value="<%= @blueprint.word_cloud %>" id="my_dataviz" class="text-cover py-4">
         </div>
       </div>
     </div>

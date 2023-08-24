@@ -11,13 +11,12 @@ export default class extends Controller {
     var myWords = this.wordsValue
     var wordCloud = [{word: myWords[0], size: "60"}, {word: myWords[1], size: "60"},
                     {word: myWords[2], size: "50"}, {word: myWords[3], size: "50"},
-                    {word: myWords[4], size: "40"}, {word: myWords[5], size: "40"},
-                    {word: myWords[6], size: "30"}, {word: myWords[7], size: "30"}];
+                    {word: myWords[4], size: "40"}, {word: myWords[5], size: "40"}];
 
     // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 10, bottom: 10, left: 10},
-        width = 450 - margin.left - margin.right,
-        height = 450 - margin.top - margin.bottom;
+    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+        width = 400 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz").append("svg")
