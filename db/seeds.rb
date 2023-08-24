@@ -26,16 +26,18 @@ comparison = Blueprint.create!(
     "Please generate a detailed script comparing the features and specifications of the indicated items, highlighting the improvements and differences between them."
     },
   sample_videos: %w[vgZvlLkFeAs 8UKikrUZg7Q wmb5AmE4TUs],
-  word_cloud: ["Valuable", "Informative", "Eye-opening", "Intriguing", "Speculative", "Captivating"]
+  word_cloud: ["Valuable", "Informative", "Eye-opening", "Intriguing", "Speculative", "Captivating"],
+  description: 'Visual analysis that contrasts and evaluates the similarities and differences between two or more subjects, often offering insights to help viewers make informed decisions.'
 )
 
-puts "Blueprint with id :#{comparison.id} has been created"
+puts "#{comparison.name} blueprint has been created"
 
 commentary = Blueprint.create!(
   name: 'Commentary',
   prompt_template: 'Script a reaction video to the indicated topic. It should include initial impressions, emotional responses, and thoughtful commentary.',
   sample_videos: ['zIqR43D4CwI', 'uPX1ObBBt_U', 'exm5iJirkIo'],
-  word_cloud: ["Humorous", "Opinionated", "Casual", "Free-flowing", "Instinctual", "Cheeky"]
+  word_cloud: ["Humorous", "Opinionated", "Casual", "Free-flowing", "Instinctual", "Cheeky"],
+  description: 'Provide real-time commentary and emotional responses while experiencing various forms of media content, often for entertainment or discussion purposes.'
 )
 
 puts "#{commentary.name} blueprint has been created"
@@ -45,7 +47,8 @@ no_experience = Blueprint.create!(
   prompt_template: "Script a video about attempting the indicated topic without having any prior experience. Make sure that the narrator covers the experience step by step, their impressions and emotional response. Please ensure it’s engaging and suitable for a diverse audience.
   The title of the video should be something like 'I attempted [topic] with NO experience', or 'I went [topic] with NO experience'.",
   sample_videos: ['z2lcoeF0U_Y', 'sPsxnd-jKZE', 'ftwysv8-gx8'],
-  word_cloud: ["Adventurous", "Crazy", "Risky", "Insane", "Wild", "Unfamiliar"]
+  word_cloud: ["Adventurous", "Crazy", "Risky", "Insane", "Wild", "Unfamiliar"],
+  description: "Follow an individual's journey as they engage in an activity or task they are unfamiliar with, capturing their initial challenges, progress, and eventual outcomes."
 )
 
 puts "#{no_experience.name} blueprint has been created"
