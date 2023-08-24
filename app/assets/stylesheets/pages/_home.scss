@@ -14,8 +14,10 @@
   text-align: center;
 }
 
-.home-text h1, h3 {
-  color: white;
-  font-size: 4rem;
-  text-shadow: 2px 2px 5px invert($color: white);
+.home-text {
+  h1, h3 {
+    color: white;
+    font-size: 4rem;
+    text-shadow: 2px 2px 5px invert($color: white);
+  }
 }

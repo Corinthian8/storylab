@@ -5,12 +5,15 @@
         <form data-controller="clipboard">
           <div class="script-body">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
-            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>') %></p>
+            <p name="script[script_body]" id="script_body" data-clipboard-target="source"
+            data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>').gsub('<h4>', '<h4 class="light-yellow-text">').gsub('<h3>', '<h3 class="dark-yellow-text>') %></p>
           <%# 　<button class="btn btn-primary" type="button" data-action="editable-text#save">Save</button> %>
           </div>
           <div class="button-submit">
-            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
-            <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
+            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode"
+            data-editable-text-target="editButton">Edit</button>
+            <button type="button" class="btn btn-primary" data-action="clipboard#copy"
+            data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
           </div>
         </form>
       </div>
@@ -21,11 +24,13 @@
           <h2>Options</h2>
           <%= simple_form_for [@script], url: script_path(@script) do |f| %>
             <%= f.input :duration do %>
-              <%= f.select :duration, [ [3, "1"], [5, "2"], [8, "3"], [10, "4"], [12, "5"], [15, "6"] ] %>
+              <%= f.select :duration, [ [3, "1"], [5, "2"], [8, "3"],
+              [10, "4"], [12, "5"], [15, "6"] ] %>
               <%= f.label :duration, "(in minutes)" %>
             <% end %>
             <%= f.input :tone do %>
-              <%= f.select :tone, [ ["Cheerful", "1"], ["Educational", "2"], ["Emotional", "3"], ["Humorous", "4"], ["Inspirational", "5"], ["Neutral", "6"], ["Playful", "7"] ] %>
+              <%= f.select :tone, [ ["Cheerful", "1"], ["Educational", "2"], ["Emotional", "3"],
+              ["Humorous", "4"], ["Inspirational", "5"], ["Neutral", "6"], ["Playful", "7"] ] %>
             <% end %>
             <%= f.submit 'regenerate', :class => 'spinner', :id => 'submit-button' %>
             <%# add more tones %>
@@ -36,7 +41,8 @@
           <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
           <% video_url = hd_video.link %>
           <%= link_to video_url, target: :_blank do %>
-            <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
+            <%= video_tag video_url, size: "320x240", controls: false,
+            autoplay: :autoplay, muted: :muted, loop: :loop %>
           <% end %>
         <% end %>
       </div>

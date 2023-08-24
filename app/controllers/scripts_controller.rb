@@ -20,7 +20,8 @@ class ScriptsController < ApplicationController
       Create a 'technical script' for a YouTube video about #{@script.topic}.
       The video should have a duration of around #{@script.duration || '8'} minutes.
       Its tone should be #{@script.tone || 'neutral'}.
-      Create it by following this prompt: '#{@script.blueprint.prompt_template}'")
+      Create it by following this prompt: '#{@script.blueprint.prompt_template}'
+      Write it using only h3, h4, and p tags in HTML code but don't include the head tag.")
     if @script.save
       redirect_to script_path(@script)
     else
