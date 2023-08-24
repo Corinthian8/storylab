@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require_relative '../jobs/get_ai_response_job'
 # app/controllers/scripts_controller.rb
 class ScriptsController < ApplicationController
   before_action :set_script, only: %i[show update]
@@ -29,22 +29,28 @@ class ScriptsController < ApplicationController
   end
 
   def update
+    # raise
     @pexels_videos = pexels(@script.topic)
-    if script_params['script_body']
-      @script.update(script_body: script_params['script_body'])
 
+    # Check for script regeneration
+    if script_params[:script_body].blank?
+      # byebug
+      GetAiResponseJob.perform_later(@script)
+      flash[:notice] = 'Script is being regenerated'
+      # @script = Script.find(params[:id])
+      render :show
+      return
+    end
+
+    # Update script details
+    if @script.update(script_params)
       respond_to do |format|
         format.html { redirect_to scripts_path }
-        format.text { render :show, locals: {script: @script}, formats: [:html] }
+        format.text { render :show, locals: { script: @script }, formats: [:html] }
       end
-    end
-    if @script.update(script_params)
-      @script.regenerate_script unless script_params[:script_body].present?
-      render :show
-      flash[:notice] = 'Script is being regenerated'
     else
-      render :show
       flash[:alert] = 'Script was not successfully updated'
+      render :show
     end
   end
 
