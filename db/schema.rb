@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_123650) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_25_080445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_123650) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.text "content"
+    t.bigint "script_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["script_id"], name: "index_locations_on_script_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "chat_id", null: false
     t.integer "role"
@@ -79,7 +87,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_123650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "pexels_videos", array: true
+    t.bigint "location_id"
     t.index ["blueprint_id"], name: "index_scripts_on_blueprint_id"
+    t.index ["location_id"], name: "index_scripts_on_location_id"
     t.index ["user_id"], name: "index_scripts_on_user_id"
   end
 
@@ -98,7 +108,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_123650) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "users"
+  add_foreign_key "locations", "scripts"
   add_foreign_key "messages", "chats"
   add_foreign_key "scripts", "blueprints"
+  add_foreign_key "scripts", "locations"
   add_foreign_key "scripts", "users"
 end
