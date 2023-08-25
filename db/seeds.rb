@@ -89,7 +89,7 @@ puts "#{is_it_possible.name} blueprint has been created"
 
 i_only_did = Blueprint.create!(
   name: 'I only did _____ for 30 days',
-  prompt_template: "Script a video in which the narrator attempts to do only one indicated topic for the next 30 days.
+  prompt_template: "Script a video in which the narrator attempts to do one indicated topic activity for the next 30 days.
   Make sure that the narrator details their experiences along the way. Please ensure it’s engaging and suitable for a diverse audience.
   The title of the video should be something like 'I only did [topic] for 30 days', or 'I tried only doing [topic] for 30 days'.",
   sample_videos: ['h2vAozPxvzU', 'O6UedmnRJc0', 'WLoLAdXpf7I'],
@@ -98,6 +98,18 @@ i_only_did = Blueprint.create!(
 )
 
 puts "#{i_only_did.name} blueprint has been created"
+
+worlds_most = Blueprint.create!(
+  name: "I traveled to the world's most _____ place",
+  prompt_template: "Script a video in which the narrator travels to a location known to be the most extreme for the indicated topic.
+  Make sure that the narrator details their travel experiences along the way. Please ensure it’s engaging and suitable for a diverse audience.
+  The title of the video should be something like 'I traveled to the world's most [topic] country', or 'I traveled to the country known to be the most [topic]'.",
+  sample_videos: ['hxC1NBfCECM', 'taXDBwLOWg8', 'JPPMz8fEml0'],
+  word_cloud: ["Adventurous", "Unpredictable", "Unknown", "Challenging", "Life-changing", "Discovery"],
+  description: "Show your audience what life is like in some of the most extreme travel destinations in the world."
+)
+
+puts "#{worlds_most.name} blueprint has been created"
 
 puts 'Creating Scripts...'
 
