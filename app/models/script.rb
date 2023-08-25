@@ -4,6 +4,7 @@ class Script < ApplicationRecord
   validates :topic, presence: true
   validates :topic, length: { minimum: 2 }
   validates :topic, length: { maximum: 100 }
+
   # broadcast_replace_to(:notifications, target: "icon", html: "<span class='icon'>notification_new</span>")
   def regenerate_script
     self.script_body = ChatgptService.call("
