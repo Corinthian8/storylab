@@ -71,6 +71,6 @@ class ScriptsController < ApplicationController
 
   def pexels(topic)
     Pexels::Client.new.videos.search(topic,
-                                     page: 1, per_page: 6, size: :medium, orientation: :landscape)
+                                    page: 1, per_page: 6, size: :medium, orientation: :landscape)
   end
 end
