@@ -1,18 +1,3 @@
-
-// script-card-styling
-
-// .scripts-container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 20px;
-//   .card-body {
-//     display: flex;
-//     flex-direction: row;
-//   }
-// }
-
-// inside script card
 .card{
   padding:10px;
   border-radius: 10px;
@@ -40,6 +25,7 @@
 
 .dark-gold-div {
   background: linear-gradient($gold-card-gradient);
+  border-radius: 30px;
 }
 
 // view script button styling
@@ -49,26 +35,21 @@
 }
 
 .btn-readscript {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: inline-block;
-  width: 400px;
-  height: 50px;
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 1px darkblue;
-  color: black;
-  background-color: white;
-  border: 2px;
-  border: white;
-  border-radius: 4px;
+  color: $dark;
+  background-color: $cream;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  text-shadow: 1px 1px 1px rgb(95, 84, 0);
   opacity: 80%;
   transition: background-color 0.3s ease;
 }
 
 .btn-readscript:hover {
-  background-color: gold;
-  border-color: black;
+  background-color: rgb(255, 251, 231);
+  border-color: rgb(227, 193, 0);
+  font-size: 1.1rem;
 }
 
 
