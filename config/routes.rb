@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :scripts, only: %i[index show new create update] do
-    resource :locations, only: %i[create]
+    member do
+      # get :location
+      resources :locations, only: %i[show create update]
+    end
   end
+
+  # resources :location, only: %i[show create update]
 
   resources :blueprints, only: %i[index show]
 
