@@ -6,7 +6,7 @@
           <div class="script-body">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
             <p name="script[script_body]" id="script_body" data-clipboard-target="source"
-            data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>').gsub('<h4>', '<h4 class="light-yellow-text">').gsub('<h3>', '<h3 class="dark-yellow-text>') %></p>
+            data-editable-text-target="editableText"><%= raw @script.script_body.gsub("\n", '<br>').gsub('"[', '<h4>"[').gsub(']"', ']"</h4>') %></p>
           <%# 　<button class="btn btn-primary" type="button" data-action="editable-text#save">Save</button> %>
           </div>
           <div class="button-submit">
