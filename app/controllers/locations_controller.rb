@@ -1,31 +1,28 @@
 class LocationsController < ApplicationController
-  before_action :set_script, only: %i[show create update]
+  before_action :set_location, only: %i[show create update]
 
   def show
-    # @location = @script.location
+    if @location.content.blank?
+      response = ChatgptService.call("Give me only the list of 5 best locations to film the video based on following script:
+        #{@location.script.script_body}
+        Just give an enumerated list of locations, without a prefacing paragraph.")
+      @location.update(content: response)
+      render :show
+    else
+      respond_to do |format|
+        format.html
+        format.text { render :show, locals: { location: @location }, formats: [:html] }
+      end
+    end
   end
 
   def create
-    # @location = @script.location
-    # if @location.nil?
-    #   flash[:alert] = 'Location not found'
-    #   redirect_to script_path(@script)
-    # else
-    #   GetAiResponseJob.perform_later(@script)
-    #   flash[:notice] = 'Location is suggested'
-    #   render :show
-    # end
-
   end
 
   def update
   end
 
   private
-
-  # def script_params
-  #   params.require(:script).permit(:name, :topic, :tone, :duration, :blueprint_id, :pexels_videos, :script_body)
-  # end
 
   def set_location
     @location = Location.find(params[:id])
