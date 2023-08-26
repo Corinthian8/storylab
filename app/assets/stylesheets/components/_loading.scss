@@ -3,6 +3,7 @@
   display: block;
   margin: 0 auto;
   padding: .6em .8em;
+  background-color: #f5ee57;
   /* Font-size is the root value that determines size of spinner parts.
 Change this to whatever you want and spinner elements will size to match. */
   font-size: 20px;
@@ -13,6 +14,11 @@ Change this to whatever you want and spinner elements will size to match. */
   cursor: pointer;
   position: relative;
   transition: all 1s;
+}
+
+#submit-button:hover {
+  background-color: #1f1e23;
+  color: #f5ee57;
 }
 
 /* focus/disabled styles, you can change this for accessibility */

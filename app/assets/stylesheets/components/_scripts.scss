@@ -2,18 +2,23 @@
 .script-show {
 
 .body{
-  background-color: black;
+  background-color: #f9f6cd;
   border-radius: 5px;
 }
 
 p {
-  color: white;
+  color: rgb(8, 8, 8);
   margin: 10px;
   font-family: 'Titillium Web', sans-serif;
 }
 
+h4 {
+  font-size: medium;
+}
+
 h4, h5{
-  color: gold;
+  color: black;
+  font-weight: 600;
   margin: 10px;
   font-family: 'Titillium Web', sans-serif;
 }
@@ -31,12 +36,29 @@ h4, h5{
 }
 .script-body{
   border: 1px solid white;
-  background-color: black;
-  border-radius: 5px;
+  background-color: #f9f6cd;
+  border-radius: 10px;
+}
+
+.script-title {
+  background-color: #f5ee57; /* Red background */
+  border-radius: 40px; /* Rounded corners */
+  padding: 8px; /* Inner spacing */
+  padding-left: 16px;
+  margin-bottom: 16px; /* Spacing below the card */
+}
+
+.script-category {
+  background-color: #f5ee57; /* Red background */
+  border-radius: 40px; /* Rounded corners */
+  padding: 2px; /* Inner spacing */
+  margin-bottom: 16px; /* Spacing below the card */
+  width: 20%;
+  text-align: center;
 }
 
 .form-label {
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 10px;
 }
 
@@ -54,7 +76,10 @@ h4, h5{
 }
 
 .container-options {
-  background-color: gray;
+  background-color: #f9f6cd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 17px;
 }
 
 .container {
@@ -73,6 +98,71 @@ h4, h5{
 .button-submit {
   text-align: center;
   margin: 10px;
+}
+/* Slider styles */
+.slider-container {
+  position: relative;
+  width: 70%;
+}
+
+.form-control-range {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 10px;
+  border-radius: 5px;
+  background: #f5ee57;
+  outline: none;
+}
+
+.form-control-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.form-control-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+/* Label styles */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+}
+
+.slider-labels span {
+  position: relative;
+  bottom: 0;
+  font-size: 14px;
+}
+
+.radio-columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-check {
+  flex: 1 1 calc(50% - 10px); /* 50% width, minus 10px for any padding/margin */
+  box-sizing: border-box;
+}
+
+.option-label {
+  font-size: 18px;  /* Adjust size as needed */
+  font-weight: bold;  /* Makes text bold */
+}
+
+.form-check-input {
+  background-color: black;
+  border-color: #f5ee57;
 }
 
 }
