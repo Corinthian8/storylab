@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
-  before_action :set_script, only: %i[show]
+  before_action :set_script, only: %i[create]
 
-  def show
+  def create
     @location = @script.location
     if @location.nil?
       flash[:alert] = 'Location not found'
