@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     member do
       # get :location
       resources :locations, only: %i[show create update]
+<<<<<<< HEAD
       resources :plans, only: %i[show create update]
+=======
+>>>>>>> master
     end
   end
 
@@ -21,3 +24,7 @@ Rails.application.routes.draw do
 
   patch '/scripts/:id', to: 'scripts#update'
 end
+
+
+# resources :blueprints, only: %i[index show]
+# resources :scripts, only: %i[index show new create update]
