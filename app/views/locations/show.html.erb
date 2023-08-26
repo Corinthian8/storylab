@@ -1,0 +1,7 @@
+<!-- app/views/locations/show.html.erb -->
+<h1>Best Location</h1>
+<% if @location %>
+  <%= raw @location.content.gsub("\n", "<br>") %>
+<% else %>
+  <p>Location not found.</p>
+<% end %>
