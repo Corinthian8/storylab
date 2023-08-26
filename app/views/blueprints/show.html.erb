@@ -1,29 +1,34 @@
-<div class="container py-4">
-  <div class="row pb-4">
-  <h1 class="pb-3 title-text"><%= @blueprint.name %></h1>
-  <h5><%= @blueprint.description %></h5>
-    <div class="col-6" data-controller="video-player" data-target="thumbnails">
-      <div class="d-flex justify-content-between my-4">
-        <% @blueprint.sample_videos.each do |video| %>
-          <%= image_tag "https://i.ytimg.com/vi/#{video}/hqdefault.jpg",
+<div class="container col-12">
+  <div class="storylab-container-dark col-12">
+    <div class="storylab-container-gold d-flex">
+      <div class="col-4 storylab-container-cream d-flex justify-content-center">
+        <%= image_tag("undraw_video_streaming_re_v3qg.svg", alt: "Your SVG Image", style: "width: 50%; height: auto;") %>
+      </div>
+      <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
+        <lead><%= 'short intro' %></lead>
+        <h1><%= @blueprint.name %></h1>
+        <p><%= @blueprint.description %></p>
+      </div>
+    </div>
+    <div class="d-flex" style="column-gap: 4px;">
+      <div class="storylab-container-gold mt-3 col-7">
+        <h5>Here's some videos</h5>
+        <p>that use this formula</p>
+        <div data-controller="video-player" data-target="thumbnails">
+          <div class="d-flex justify-content-between my-4">
+            <% @blueprint.sample_videos.each do |video| %>
+              <%= image_tag "https://i.ytimg.com/vi/#{video}/hqdefault.jpg",
           id: "#{video}",
           class: "small-thumbnail",
           data: { action: "click->video-player#play"} %>
-        <% end %>
-      </div>
-      <iframe class="py-2" data-video-player-target="video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop muted playsinline></iframe>
-    </div>
-    <div class="col-6 text-center">
-      <div class="word-cloud-box">
-        <div data-controller="word-cloud" data-action="onload->word-cloud#connect"
-        data-word-cloud-words-value="<%= @blueprint.word_cloud %>" id="my_dataviz" class="text-cover py-4">
+            <% end %>
+          </div>
+          <iframe class="py-2" data-video-player-target="video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop muted playsinline></iframe>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="d-flex justify-content-center">
-      <div class="container">
+      <div class="storylab-container-cream mt-3 col-5">
+        <h4>Make your own</h4>
+        <p>Select the options and tell us what your video will be about</p>
         <%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
           <%= f.input :topic %>
           <%= f.input :duration do %>
