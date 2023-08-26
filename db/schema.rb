@@ -87,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_080445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "pexels_videos", array: true
+    t.text "pexels_videos", array: true
     t.bigint "location_id"
     t.index ["blueprint_id"], name: "index_scripts_on_blueprint_id"
     t.index ["location_id"], name: "index_scripts_on_location_id"
