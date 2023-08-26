@@ -13,7 +13,8 @@ class GetAiResponseJob < ApplicationJob
       prompt = "
       Rewrite the following 'technical script' for a YouTube video about #{script.topic}:
       '#{script.script_body}'
-      Make sure the new version has a #{script.tone} tone, and the video made from this script should be #{script.duration} minutes long."
+      Make sure the new version has a #{script.tone} tone, and the video made from this script should be #{script.duration} minutes long.
+      Write it using only h4, h5, and p tags in HTML code but don't include the head tag."
     end
     call_openai(script, prompt)
   end
