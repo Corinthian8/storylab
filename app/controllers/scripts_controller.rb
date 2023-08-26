@@ -29,6 +29,7 @@ class ScriptsController < ApplicationController
     @script.user = current_user
     @script.script_body = ''
     if @script.save
+      Location.create(script_id: @script.id)
       redirect_to script_path(@script)
     else
       render 'blueprints/show'
