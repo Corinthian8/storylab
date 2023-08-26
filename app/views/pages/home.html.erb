@@ -1,11 +1,7 @@
-<%# <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel"> %>
 <div data-controller="background-switch">
-  <%# <div class="carousel-inner"> %>
   <div data-background-switch-target="main-page" data-action="onload->background-switch#toggle">
   <div class="home-text">
-    <%= image_tag("storylabfull2.png", width: "70%") %>
-    <%# <h1>StoryLab</h1>
-    <h3>From keywords to captivating scripts</h3> %>
+        <%= image_tag("storylabfull2.png", width: "100%", class: "center-image") %>
     <br>
     <br>
     <%= link_to "See our video blueprints", blueprints_path, class: "btn btn-home" %>
