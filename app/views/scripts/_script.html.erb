@@ -12,12 +12,15 @@
       <% end %>
     </div>
     <div class="col-md-8">
-      <div class="card-body py-4">
+      <div class="card-body py-3">
         <h4 class="card-text"><strong><%= script.blueprint.name %></strong>  -  "<i><%= script.topic %></i>"</h4>
         <br>
         <h2 class="card-title"><strong><%= script.script_body[/(Title:).(?:(?!<\/h4>|<br>).)*/] %></strong></h2>
         <br>
-        <p class="card-text text-muted"><%= script.updated_at.strftime("%Y-%m-%d") %></p>
+        <div class ="d-flex justify-content-between pt-2">
+          <p class="card-text text-muted"><%= script.updated_at.strftime("%Y-%m-%d") %></p>
+          <%= link_to "View full script", script_path(script), class: "btn btn-readscript" %>
+        </div>
       </div>
     </div>
   </div>
