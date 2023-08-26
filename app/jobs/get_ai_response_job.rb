@@ -35,18 +35,7 @@ class GetAiResponseJob < ApplicationJob
           model: 'gpt-3.5-turbo',
           messages: [{ role: 'user', content: prompt }],
           temperature: 0.1,
-          stream: proc do |chunk, _bytesize|
-            new_content = chunk.dig('choices', 0, 'delta', 'content')
-            puts new_content, '####################'
-            # byebug
-            if new_content
-              script.update(script_body: script.script_body + new_content)
-              # Broadcast updated message using ActionCable
-              PostChannel.broadcast_to(script,
-                                       ApplicationController.new.render_to_string(partial: 'scripts/script_body',
-                                                                                  locals: { script: script }))
-            end
-          end
+          stream: stream_proc(script)
         }
       )
   end
@@ -54,7 +43,6 @@ class GetAiResponseJob < ApplicationJob
   def stream_proc(script)
     proc do |chunk, _bytesize|
       new_content = chunk.dig('choices', 0, 'delta', 'content')
-      puts new_content, '####################'
 
       if new_content
         script.update(script_body: script.script_body + new_content)

@@ -5,9 +5,7 @@
         <form data-controller="clipboard">
           <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>" data-replace-target="scriptBody">
             <h2><label for="Script" class="form-label">Draft Script</label></h2>
-            <p name="script[script_body]" id="script_body" data-clipboard-target="source" data-editable-text-target="editableText">
               <%= render 'scripts/script_body', script: @script %>
-            </p>
           </div>
           <div class="button-submit">
             <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
