@@ -12,6 +12,8 @@ class ScriptsController < ApplicationController
 
   def show
     @pexels_videos = pexels(@script.topic)
+    @script.update(location: Location.create) if @script.location.nil?
+    @script.update(plan: Plan.create) if @script.plan.nil?
     if @script.script_body.blank?
       GetAiResponseJob.perform_later(@script)
       flash[:notice] = 'Script is being generated'
@@ -29,7 +31,6 @@ class ScriptsController < ApplicationController
     @script.user = current_user
     @script.script_body = ''
     if @script.save
-      Location.create(script_id: @script.id)
       redirect_to script_path(@script)
     else
       render 'blueprints/show'

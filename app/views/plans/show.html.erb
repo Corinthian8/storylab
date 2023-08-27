@@ -1,0 +1,9 @@
+
+<div class="container">
+  <h1>Recording plans</h1>
+  <% if @plan %>
+    <%= raw @plan.content.gsub("\n", "<br>") %>
+  <% else %>
+    <p>Plan not found.</p>
+  <% end %>
+</div>
