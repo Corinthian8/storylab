@@ -6,13 +6,13 @@ class GetAiResponseJob < ApplicationJob
       The video should have a duration of around #{script.duration || '8'} minutes.
       Its tone should be #{script.tone || 'neutral'}.
       Create it by following this prompt: '#{script.blueprint.prompt_template}'
-      Write it using only h4, h5, and p tags in HTML code but don't include the head tag."
+      Write it using only h4, h5, and p tags in HTML code but don't include the head tag. The speaker is not a title and should be a part of a normal <p> tag."
     else
       prompt = "
       Rewrite the following 'technical script' for a YouTube video about #{script.topic}:
       '#{script.script_body}'
       Make sure the new version has a #{script.tone} tone, and the video made from this script should be #{script.duration} minutes long.
-      Write it using only h4, h5, and p tags in HTML code but don't include the head tag."
+      Write it using only h4, h5, and p tags in HTML code but don't include the head tag. The speaker is not a title and should be a part of a normal <p> tag."
     end
     call_openai(script, prompt)
   end

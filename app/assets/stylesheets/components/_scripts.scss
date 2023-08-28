@@ -16,7 +16,7 @@ h4 {
 }
 
 h4, h5{
-  color: black;
+  color: $dark;
   font-weight: 600;
   margin: 10px;
   font-family: 'Titillium Web', sans-serif;
@@ -35,25 +35,29 @@ h4, h5{
 }
 .script-body{
   border: 1px solid white;
-  background-color: #f9f6cd;
-  border-radius: 10px;
+  background-color: $cream;
+  border-radius: 30px;
+  padding: 8px;
 }
 
 .script-title {
-  background-color: #f5ee57; /* Red background */
+  background-color: $gold; /* Red background */
+  color: $dark;
   border-radius: 40px; /* Rounded corners */
-  padding: 8px; /* Inner spacing */
-  padding-left: 16px;
+  // padding: 8px; /* Inner spacing */
+  padding: 16px;
   margin-bottom: 16px; /* Spacing below the card */
+  display: inline-block;
 }
 
 .script-category {
-  background-color: #f5ee57; /* Red background */
+  background-color: $gold; /* Red background */
   border-radius: 40px; /* Rounded corners */
-  padding: 2px; /* Inner spacing */
+  padding: 8px; /* Inner spacing */
   margin-bottom: 16px; /* Spacing below the card */
-  width: 20%;
-  text-align: center;
+  display: inline-block;
+  // width: 20%;
+  // text-align: center;
 }
 
 .form-label {
@@ -109,7 +113,7 @@ h4, h5{
   -webkit-appearance: none;
   height: 10px;
   border-radius: 5px;
-  background: #f5ee57;
+  background: $gold;
   outline: none;
 }
 
@@ -160,12 +164,12 @@ h4, h5{
 }
 
 .form-check-input {
-  background-color: black;
-  border-color: #f5ee57;
+  background-color: $dark;
+  // border-color: $gold;
 }
 
 }
 
 .background-script {
-  background: black;
+  background: $dark;
 }

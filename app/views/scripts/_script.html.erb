@@ -5,7 +5,6 @@
       <% pexels_video = Pexels::Client.new.videos.search(script.topic, page: 1, per_page: 1, size: :medium, orientation: :landscape) %>
       <% if pexels_video.first.files.third.link.nil? %>
         <%= video_tag editing_video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
-        <div class="rounded-video"></div>
       <% else %>
         <% video_url = pexels_video.first.files.third.link %>
         <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
