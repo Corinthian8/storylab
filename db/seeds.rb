@@ -38,7 +38,7 @@ comparison = Blueprint.create!(
     "Please generate a detailed script comparing the features and specifications of the indicated items,
     highlighting the improvements and differences between them."
     },
-  sample_videos: %w[vgZvlLkFeAs 8UKikrUZg7Q wmb5AmE4TUs],
+  sample_videos: %w[ZOYIJ9LKF0k 8UKikrUZg7Q wmb5AmE4TUs],
   word_cloud: ["Valuable", "Informative", "Eye-opening", "Intriguing", "Speculative", "Captivating"],
   description: 'Visual analysis that contrasts and evaluates the similarities and differences between two or more subjects,
   often offering insights to help viewers make informed decisions.'
@@ -65,7 +65,7 @@ commentary = Blueprint.create!(
   name: 'Commentary',
   prompt_template: 'Script a reaction video to the indicated topic. It should include initial impressions,
   emotional responses, and thoughtful commentary.',
-  sample_videos: ['zIqR43D4CwI', 'uPX1ObBBt_U', 'exm5iJirkIo'],
+  sample_videos: ['zIqR43D4CwI', 'uPX1ObBBt_U', '3s3CmyepjMc'],
   word_cloud: ["Humorous", "Opinionated", "Casual", "Free-flowing", "Instinctual", "Cheeky"],
   description: 'Provide real-time commentary and emotional responses while experiencing various forms of media content,
   often for entertainment or discussion purposes.'
@@ -103,7 +103,7 @@ is_it_possible = Blueprint.create!(
   it's possible to accomplish the indicated topic. Make sure that the narrator explores all possibilities
   related to achieving the desired outcome. Please ensure it’s engaging and suitable for a diverse audience.
   The title of the video should be something like 'Is it possible to do [topic]', or 'Is it possible to [topic]'.",
-  sample_videos: ['AwPq-7BrzDo', 'QNV4gHWZ9p4', '5vZ4lCKv1ik'],
+  sample_videos: ['AwPq-7BrzDo', 'QNV4gHWZ9p4', 'y8Y456JmDzw'],
   word_cloud: ["Skeptical", "Feasible", "Speculative", "Viable", "Potential", "Uncertainty"],
   description: "Delve deep into the realm of making the impossible, possible."
 )
