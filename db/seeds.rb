@@ -65,7 +65,7 @@ commentary = Blueprint.create!(
   name: 'Commentary',
   prompt_template: 'Script a reaction video to the indicated topic. It should include initial impressions,
   emotional responses, and thoughtful commentary.',
-  sample_videos: ['zIqR43D4CwI', 'uPX1ObBBt_U', '3s3CmyepjMc'],
+  sample_videos: ['zIqR43D4CwI', '3s3CmyepjMc', 'uPX1ObBBt_U'],
   word_cloud: ["Humorous", "Opinionated", "Casual", "Free-flowing", "Instinctual", "Cheeky"],
   description: 'Provide real-time commentary and emotional responses while experiencing various forms of media content,
   often for entertainment or discussion purposes.'
