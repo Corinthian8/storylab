@@ -3,7 +3,13 @@
   <div class="storylab-container-dark col-12">
     <div class="storylab-container-gold d-flex">
       <div class="col-4 storylab-container-cream d-flex justify-content-center">
-        <%= image_tag("undraw_focus_sey6.svg", alt: "Your SVG Image", style: "width: 50%; height: auto;") %>
+        <% @pexels_videos.each do |vid| %>
+          <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
+          <% video_url = hd_video.link %>
+          <%= link_to video_url, target: :_blank do %>
+            <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
+          <% end %>
+        <% end %>
       </div>
       <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
         <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
