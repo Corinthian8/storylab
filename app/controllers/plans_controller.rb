@@ -3,9 +3,9 @@ class PlansController < ApplicationController
 
   def show
     if @plan.content.blank?
-      response = ChatgptService.call("Give me only step by step itinerary to film the youtube video based on following script:
+      response = ChatgptService.call("Give me only day by day itinerary to film the youtube video based on following script:
         #{@plan.script.script_body}
-        Just give an itinerary without a prefacing paragraph. ")
+        Just give an itinerary without a prefacing paragraph and postscript and Note. ")
       @plan.update(content: response)
       render :show
     else
