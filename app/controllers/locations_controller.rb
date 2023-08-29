@@ -3,9 +3,9 @@ class LocationsController < ApplicationController
 
   def show
     if @location.content.blank?
-      response = ChatgptService.call("Give me only the list of 5 best locations to film the video based on following script:
+      response = ChatgptService.call("Give me a list of 5 non-specific locations (for example: 'Park' instead 'Central Park, New York')  to film a video that is based on following script:
         #{@location.script.script_body}
-        Just give an enumerated list of locations, without a prefacing paragraph.")
+        Just give an enumerated list of locations, without a prefacing paragraph, specify what should be the content to record.")
       @location.update(content: response)
       render :show
     else
@@ -29,9 +29,7 @@ class LocationsController < ApplicationController
   end
 
   # PATCH/PUT /scripts/:script_id/locations/:id
-  def update
-
-  end
+  def update; end
 
   private
 
@@ -39,9 +37,7 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:content)
   end
 
-
   def set_location
     @location = Location.find(params[:id])
   end
-
 end
