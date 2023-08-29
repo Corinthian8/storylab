@@ -31,7 +31,7 @@ five_simple_steps = Blueprint.create!(
   sample_videos: ['BxOBhZBLOio', '9TPXD3-kCfU', 'pFN2n7CRqhw'],
   word_cloud: ["Helpful", "Practical", "Demonstrative", "Detailed", "Instructive", "Visual"],
   description: "Help others to learn the skills you possess in just 5 simple, easy-to-follow steps.",
-  sampleimage: 'Compare2.png'
+  sampleimage: 'Steps2.png'
 )
 
 puts "#{five_simple_steps.name} blueprint has been created"
@@ -142,7 +142,7 @@ top_ten = Blueprint.create!(
   sample_videos: ['dj3hWDMqc1c', 'VSiERa2Cp_E', 'V86wOWTUr04'],
   word_cloud: ["Informative", "Compelling", "Unknown", "Curated", "Noteworthy", "Inspiring"],
   description: "Inform your audience of the world they live in with your own top ten list.",
-  sampleimage: 'Compare2.png'
+  sampleimage: 'Top2.png'
 )
 
 puts "#{top_ten.name} blueprint has been created"
