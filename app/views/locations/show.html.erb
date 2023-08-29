@@ -1,8 +1,16 @@
-<div class="container">
-  <h1>Suggested location</h1>
-  <% if @location %>
-    <%= raw @location.content.gsub("\n", "<br>") %>
-  <% else %>
-    <p>Location not found.</p>
-  <% end %>
+<!-- app/views/locations/show.html.erb -->
+<div class="container col-12">
+  <div class="storylab-container-dark col-12">
+    <div class="storylab-container-gold d-flex">
+      <div class="col-4 storylab-container-cream d-flex justify-content-center">
+        <%= image_tag("undraw_focus_sey6.svg", alt: "Your SVG Image", style: "width: 50%; height: auto;") %>
+      </div>
+      <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
+        <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
+        <h1>Recommended locations</h1>
+        <p>to shoot your video</p>
+        <%= raw @location.content.gsub("\n", "<br>") %>
+      </div>
+    </div>
+  </div>
 </div>
