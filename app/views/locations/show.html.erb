@@ -2,20 +2,35 @@
 <div class="container col-12">
   <div class="storylab-container-dark col-12">
     <div class="storylab-container-gold d-flex">
-      <div class="col-4 storylab-container-cream d-flex justify-content-center">
+      <div class="col-4 storylab-container-cream">
+        <h2>Here's some FREE</h2>
+        <p>Stock videos for your project</p>
+        <p>(Click to download)</p>
         <% @pexels_videos.each do |vid| %>
-          <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
-          <% video_url = hd_video.link %>
-          <%= link_to video_url, target: :_blank do %>
-            <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop %>
-          <% end %>
+          <div class="light-gold-div mb-3">
+            <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
+            <% video_url = hd_video.link %>
+            <%= link_to video_url, target: :_blank do %>
+              <div>
+                <%= video_tag video_url, controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
+        <span class="footer__logo__text__opaque">— Beautiful free videos from Pexels.</span>
       </div>
       <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
-        <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
-        <h1>Recommended locations</h1>
-        <p>to shoot your video</p>
-        <%= raw @location.content.gsub("\n", "<br>") %>
+        <div>
+          <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
+          <h1>Recommended locations</h1>
+          <p>to shoot your video.</p>
+          <%= raw @location.content.gsub("\n", "<br>") %>
+        </div>
+        <div class="mt-4">
+          <h1>Work plan</h1>
+          <p>Follow these instructions to make your project easier.</p>
+          <%= raw @plan.content.gsub("\n", "<br>") %>
+        </div>
       </div>
     </div>
   </div>

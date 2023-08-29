@@ -16,11 +16,9 @@ class PlansController < ApplicationController
     end
   end
 
-  def create
-  end
+  def create; end
 
-  def update
-  end
+  def update; end
 
   private
 
@@ -31,5 +29,4 @@ class PlansController < ApplicationController
   def set_plan
     @plan = Plan.find(params[:id])
   end
-
 end
