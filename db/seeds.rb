@@ -22,13 +22,25 @@ puts "User with id :#{testuser.id} has been created"
 
 puts 'Creating Blueprints...'
 
+five_simple_steps = Blueprint.create!(
+  name: "Learn how to _____ in 5 simple steps",
+  prompt_template: "Script a video in which the narrator explains how to learn an indicated topic in five simple steps.
+  Make sure that the narrator labels and details each step along the way. Please ensure it’s engaging and suitable for a diverse audience.
+  The title of the video should be something like 'Learn how to [topic] in 5 easy steps', or 'Discover how to [topic] in 5 simple steps'.",
+  sample_videos: ['BxOBhZBLOio', '9TPXD3-kCfU', 'pFN2n7CRqhw'],
+  word_cloud: ["Helpful", "Practical", "Demonstrative", "Detailed", "Instructive", "Visual"],
+  description: "Help others to learn the skills you possess in just 5 simple, easy-to-follow steps."
+)
+
+puts "#{five_simple_steps.name} blueprint has been created"
+
 comparison = Blueprint.create!(
   name: 'Comparison',
   prompt_template: %{
     "Please generate a detailed script comparing the features and specifications of the indicated items,
     highlighting the improvements and differences between them."
     },
-  sample_videos: %w[vgZvlLkFeAs 8UKikrUZg7Q wmb5AmE4TUs],
+  sample_videos: %w[ZOYIJ9LKF0k 8UKikrUZg7Q wmb5AmE4TUs],
   word_cloud: ["Valuable", "Informative", "Eye-opening", "Intriguing", "Speculative", "Captivating"],
   description: 'Visual analysis that contrasts and evaluates the similarities and differences between two or more subjects,
   often offering insights to help viewers make informed decisions.',
@@ -92,7 +104,7 @@ is_it_possible = Blueprint.create!(
   sampleimage: 'Art2.png'
 )
 
-puts "#{is_it_possible.name} blueprint has been created"
+puts "#{commentary.name} blueprint has been created"
 
 i_only_did = Blueprint.create!(
   name: 'I only did _____ for 30 days',
@@ -119,6 +131,44 @@ worlds_most = Blueprint.create!(
 )
 
 puts "#{worlds_most.name} blueprint has been created"
+
+is_it_possible = Blueprint.create!(
+  name: 'Is it possible to _____ ?',
+  prompt_template: "Script a video that delves into the question about whether or not
+  it's possible to accomplish the indicated topic. Make sure that the narrator explores all possibilities
+  related to achieving the desired outcome. Please ensure it’s engaging and suitable for a diverse audience.
+  The title of the video should be something like 'Is it possible to do [topic]', or 'Is it possible to [topic]'.",
+  sample_videos: ['AwPq-7BrzDo', 'QNV4gHWZ9p4', 'y8Y456JmDzw'],
+  word_cloud: ["Skeptical", "Feasible", "Speculative", "Viable", "Potential", "Uncertainty"],
+  description: "Delve deep into the realm of making the impossible, possible."
+)
+
+puts "#{is_it_possible.name} blueprint has been created"
+
+top_ten = Blueprint.create!(
+  name: "The top 10 _____ ",
+  prompt_template: "Script a video in which the narrator lists and describes a top ten list for an indicated topic.
+  Make sure that the narrator details each item in the list along the way. Please ensure it’s engaging and suitable for a diverse audience.
+  The title of the video should be something like 'The top 10 most [topic]', or 'The top 10 [topic]'.",
+  sample_videos: ['dj3hWDMqc1c', 'VSiERa2Cp_E', 'V86wOWTUr04'],
+  word_cloud: ["Informative", "Compelling", "Unknown", "Curated", "Noteworthy", "Inspiring"],
+  description: "Inform your audience of the world they live in with your own top ten list."
+)
+
+puts "#{top_ten.name} blueprint has been created"
+
+how_to_beat = Blueprint.create!(
+  name: 'How to beat _____',
+  prompt_template: "Script a video about how to overcome the indicated topic with details about each step.
+  Make sure that the narrator gives sound advice and logic for overcoming the challenge.
+  Please ensure it’s engaging and suitable for a diverse audience.
+  The title of the video should be something like 'How to beat [topic]', or 'How you can beat [topic]'.",
+  sample_videos: ['qNKA9Q60K10', 'Q12QqMhLa-Y', 'Iq9AiG4KDa4'],
+  word_cloud: ["Triumphant", "Empowering", "Determined", "Proven", "Detailed", "Instructional"],
+  description: "Offer your viewers a comprehensive and step-by-step strategy for addressing a specific challenge or obstacle."
+)
+
+puts "#{how_to_beat.name} blueprint has been created"
 
 puts 'Creating Scripts...'
 

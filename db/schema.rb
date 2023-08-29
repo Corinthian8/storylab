@@ -77,6 +77,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.text "content"
+    t.bigint "script_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["script_id"], name: "index_plans_on_script_id"
+  end
+
   create_table "scripts", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
@@ -111,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
   add_foreign_key "chats", "users"
   add_foreign_key "locations", "scripts"
   add_foreign_key "messages", "chats"
+  add_foreign_key "plans", "scripts"
   add_foreign_key "scripts", "blueprints"
   add_foreign_key "scripts", "locations"
   add_foreign_key "scripts", "users"
