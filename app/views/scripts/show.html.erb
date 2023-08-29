@@ -17,6 +17,7 @@
               <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
               <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
               <%= link_to "Suggested locaton", location_path(@script.location) %>
+              <%= link_to "Suggested recording plan", plan_path(@script.plan) %>
             </div>
           </form>
         </div>

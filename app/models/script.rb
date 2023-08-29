@@ -2,6 +2,7 @@ class Script < ApplicationRecord
   belongs_to :user
   belongs_to :blueprint
   has_one :location
+  has_one :plan
   validates :topic, presence: true
   validates :topic, length: { minimum: 2 }
   validates :topic, length: { maximum: 100 }
