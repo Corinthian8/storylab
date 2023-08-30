@@ -49,12 +49,6 @@ class LocationsController < ApplicationController
         I want to record all of the scenes that take place in sequence, rather than recording in the order of the script.
         Just give the working plan without a prefacing paragraph. Write it as HTML, using only h4, h5, and p tags in HTML code but don't include the head tag.")
       plan.update(content: response)
-      render :show
-    # else
-    #   respond_to do |format|
-    #     format.html
-    #     format.text { render :show, locals: { plan: plan }, formats: [:html] }
-    #   end
     end
   end
 end
