@@ -8,7 +8,7 @@
         </div>
       </div>
       <!-- Picture -->
-      <div class="card-image" style="background-image:url('https://i.ytimg.com/vi/<%= blueprint.sample_videos.first %>/hqdefault.jpg');"></div>
+      <div><%= image_tag(blueprint.sampleimage, alt: "Blueprint Sample Image", style: "width: 100%;") %></div>
     </div>
   <% end %>
 </div>
