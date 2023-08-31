@@ -17,7 +17,7 @@ class ScriptsController < ApplicationController
     if @script.script_body.blank?
       GetAiResponseJob.perform_later(@script)
       flash[:notice] = 'Script is being generated'
-      render :show
+      # render :show
     else
       respond_to do |format|
         format.html
