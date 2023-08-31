@@ -13,7 +13,7 @@
       <% end %>
     </div>
     <div class="storylab-container-gold d-flex">
-      <div class="storylab-container-dark col-9" data-controller="editable-text">
+      <div class="storylab-container-dark col-8" data-controller="editable-text">
         <form data-controller="clipboard">
           <div class="storylab-container-cream">
             <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>" data-replace-target="scriptBody">
@@ -21,15 +21,16 @@
             </div>
           </div>
           <div class="button-submit">
-            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
-            <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
+          <br>
+            <button type="submit" class="btn-readscript" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
+            <button type="button" class="btn-readscript" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
           </div>
         </form>
       </div>
-      <div class="col-3">
-        <div class="storylab-container-cream">
-          <div class="card-options" style="width: 20rem;">
-            <div class="container-options p-3">
+      <div class="col-4">
+        <div class="storylab-container-cream", id="storylab-container-spacing">
+          <div class="card-options">
+            <div class="container-options">
               <h2>Options</h2>
               <br>
               <%= simple_form_for [@script], url: script_path(@script) do |f| %>
