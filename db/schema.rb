@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
 
   create_table "plans", force: :cascade do |t|
     t.text "content"
-    t.bigint "script_id", null: false
+    t.bigint "script_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["script_id"], name: "index_plans_on_script_id"
@@ -116,9 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "users"
-  add_foreign_key "locations", "scripts"
   add_foreign_key "messages", "chats"
-  add_foreign_key "plans", "scripts"
   add_foreign_key "scripts", "blueprints"
   add_foreign_key "scripts", "locations"
   add_foreign_key "scripts", "users"

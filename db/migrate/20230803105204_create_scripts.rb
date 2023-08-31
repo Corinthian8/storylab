@@ -4,7 +4,6 @@ class CreateScripts < ActiveRecord::Migration[7.0]
       t.string :name
       t.references :user, null: false, foreign_key: true
       t.references :blueprint, null: false, foreign_key: true
-      t.references :plan, null: false, foreign_key: true
       t.string :topic
       t.text :script_body
       t.string :tone

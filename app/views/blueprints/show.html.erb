@@ -30,14 +30,67 @@
         <h4>Make your own</h4>
         <p>Select the options and tell us what your video will be about</p>
         <%= simple_form_for [@blueprint, @script], url: scripts_path do |f| %>
-          <%= f.input :topic %>
-          <%= f.input :duration do %>
-            <%= f.select :duration, [ [3, "1"], [5, "2"], [8, "3"], [10, "4"], [12, "5"], [15, "6"] ] %>
-            <%= f.label :duration, "(in minutes)" %>
-          <% end %>
-          <%= f.input :tone do %>
-            <%= f.select :tone, [ ["Cheerful", "1"], ["Educational", "2"], ["Emotional", "3"], ["Humorous", "4"], ["Inspirational", "5"], ["Neutral", "6"], ["Playful", "7"] ] %>
-          <% end %>
+          <%= f.input :topic,label: "Topic" %>
+          <%= f.input :name,label: "Title of video" %>
+        <br>
+        <!-- Duration Slider -->
+        <div class="form-group">
+        　<%= f.label :duration, "Duration (in minutes)", class: "option-label" %>
+            <div class="slider-container">
+                  <%= f.input_field :duration, type: 'range', list: 'tickmarks', step: 3, min: 3, max: 15, value: 3, class: 'form-control-range' %>
+                  <datalist id="tickmarks">
+                    <option value="3">
+                    <option value="5">
+                    <option value="7">
+                    <option value="9">
+                    <option value="12">
+                  </datalist>
+                  <div class="slider-labels">
+                    <span>3</span>
+                    <span>5</span>
+                    <span>7</span>
+                    <span>9</span>
+                    <span>12</span>
+                  </div>
+            </div>
+        </div>
+        <br>
+        <br>
+          <!-- Tone Radio Buttons -->
+        <div class="form-group" >
+          <%= f.label :tone, "Tone", class: "option-label" %>
+            <br>
+            <br>
+            <div class="radio-columns">
+              <div class="form-check">
+                <%= f.radio_button :tone, "1", class: 'form-check-input' %>
+                <%= f.label :tone, "Cheerful", value: "1", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "2", class: 'form-check-input' %>
+                <%= f.label :tone, "Educational", value: "2", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "3", class: 'form-check-input' %>
+                <%= f.label :tone, "Emotional", value: "3", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "4", class: 'form-check-input' %>
+                <%= f.label :tone, "Humorous", value: "4", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "5", class: 'form-check-input' %>
+                <%= f.label :tone, "Inspirational", value: "5", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "6", class: 'form-check-input' %>
+                <%= f.label :tone, "Neutral", value: "6", class: 'form-check-label' %>
+              </div>
+              <div class="form-check">
+                <%= f.radio_button :tone, "7", class: 'form-check-input' %>
+                <%= f.label :tone, "Playful", value: "7", class: 'form-check-label' %>
+              </div>
+            </div>
           <%= f.hidden_field :blueprint_id, value: @blueprint.id %>
           <%= f.submit 'generate', :class => 'spinner', :id => 'submit-button' %>
         <% end %>

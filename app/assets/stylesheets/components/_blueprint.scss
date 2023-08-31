@@ -2,20 +2,88 @@
   color: black;
   text-shadow: 1px 1px 2px gold;
   font-size: 3rem;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 .description-text {
   text-shadow: 1px 1px 3px lightgrey;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 h5 {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 .word-cloud-box {
   // border: 1px solid grey;
   // border-radius: 5px;
   // box-shadow: 1px 1px 30px rgb(227, 227, 227);
+}
+
+
+/* Slider styles */
+.slider-container {
+  position: relative;
+  width: 70%;
+}
+
+.form-control-range {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 10px;
+  border-radius: 5px;
+  background: #f5ee57;
+  outline: none;
+}
+
+.form-control-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $dark;
+  cursor: pointer;
+}
+
+.form-control-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $dark;
+  cursor: pointer;
+}
+
+/* Label styles */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+}
+
+.slider-labels span {
+  position: relative;
+  bottom: 0;
+  font-size: 14px;
+}
+
+.radio-columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-check {
+  flex: 1 1 calc(50% - 10px); /* 50% width, minus 10px for any padding/margin */
+  box-sizing: border-box;
+}
+
+.option-label {
+  font-size: 18px;  /* Adjust size as needed */
+  font-weight: bold;  /* Makes text bold */
+}
+
+.form-check-input {
+  background-color: $dark;
+  border-color: #f5ee57;
 }
