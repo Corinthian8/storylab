@@ -16,7 +16,7 @@ h4 {
 }
 
 h4, h5{
-  color: black;
+  color: $dark;
   font-weight: 600;
   margin: 10px;
   font-family: 'Titillium Web', sans-serif;
@@ -66,12 +66,12 @@ h4, h5{
 }
 
 .form-control {
-  background-color: black;
+  background-color: $dark;
   color: white;
 }
 
 .algin-form {
-  border-color:black;
+  border-color:$dark;
 }
 
 .container-options {
@@ -91,7 +91,7 @@ h4, h5{
 .btn-primary {
   border-radius: 10px;
   background-color: orange;
-  border: 1px solid black;
+  border: 1px solid $dark;
 }
 
 .button-submit {
@@ -118,7 +118,7 @@ h4, h5{
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: black;
+  background: $dark;
   cursor: pointer;
 }
 
@@ -126,7 +126,7 @@ h4, h5{
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: black;
+  background: $dark;
   cursor: pointer;
 }
 
@@ -160,12 +160,12 @@ h4, h5{
 }
 
 .form-check-input {
-  background-color: black;
+  background-color: $dark;
   border-color: #f5ee57;
 }
 
 }
 
 .background-script {
-  background: black;
+  background: $dark;
 }
