@@ -13,93 +13,92 @@
     </div>
     <div class="storylab-container-gold d-flex">
       <div class="storylab-container-dark col-9">
-        <div class="storylab-container-cream" data-controller="editable-text">
-          <form data-controller="clipboard">
+        <form data-controller="clipboard" data-controller="editable-text">
+          <div class="storylab-container-cream">
             <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>" data-replace-target="scriptBody">
               <%= render 'scripts/script_body', script: @script %>
             </div>
-            <div class="button-submit">
-              <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
-              <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class="button-submit">
+            <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
+            <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
+          </div>
+        </form>
       </div>
       <div class="col-3">
-      <div class="storylab-container-cream">
-        <div class="card-options" style="width: 20rem;">
-          <div class="container-options p-3">
-            <h2>Options</h2>
-            <br>
-            <%= simple_form_for [@script], url: script_path(@script) do |f| %>
-              <!-- Duration Slider -->
-              <div class="form-group">
-                <%= f.label :duration, "Duration (in minutes)", class: "option-label" %>
-                <br>
-                <br>
-                <div class="slider-container">
-                  <%= f.input_field :duration, type: 'range', list: 'tickmarks', step: 3, min: 3, max: 15, value: 3, class: 'form-control-range' %>
-                  <datalist id="tickmarks">
-                    <option value="3">
-                    <option value="5">
-                    <option value="7">
-                    <option value="9">
-                    <option value="12">
-                  </datalist>
-                  <div class="slider-labels">
-                    <span>3</span>
-                    <span>5</span>
-                    <span>7</span>
-                    <span>9</span>
-                    <span>12</span>
+        <div class="storylab-container-cream">
+          <div class="card-options" style="width: 20rem;">
+            <div class="container-options p-3">
+              <h2>Options</h2>
+              <br>
+              <%= simple_form_for [@script], url: script_path(@script) do |f| %>
+                <!-- Duration Slider -->
+                <div class="form-group">
+                  <%= f.label :duration, "Duration (in minutes)", class: "option-label" %>
+                  <br>
+                  <br>
+                  <div class="slider-container">
+                    <%= f.input_field :duration, type: 'range', list: 'tickmarks', step: 3, min: 3, max: 15, value: 3, class: 'form-control-range' %>
+                    <datalist id="tickmarks">
+                      <option value="3">
+                      <option value="5">
+                      <option value="7">
+                      <option value="9">
+                      <option value="12">
+                    </datalist>
+                    <div class="slider-labels">
+                      <span>3</span>
+                      <span>5</span>
+                      <span>7</span>
+                      <span>9</span>
+                      <span>12</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-          <!-- Tone Radio Buttons -->
-          <br>
-          <div class="form-group">
-            <%= f.label :tone, "Tone", class: "option-label" %>
-            <br>
-            <br>
-            <div class="radio-columns">
-              <div class="form-check">
-                <%= f.radio_button :tone, "1", class: 'form-check-input' %>
-                <%= f.label :tone, "Cheerful", value: "1", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "2", class: 'form-check-input' %>
-                <%= f.label :tone, "Educational", value: "2", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "3", class: 'form-check-input' %>
-                <%= f.label :tone, "Emotional", value: "3", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "4", class: 'form-check-input' %>
-                <%= f.label :tone, "Humorous", value: "4", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "5", class: 'form-check-input' %>
-                <%= f.label :tone, "Inspirational", value: "5", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "6", class: 'form-check-input' %>
-                <%= f.label :tone, "Neutral", value: "6", class: 'form-check-label' %>
-              </div>
-              <div class="form-check">
-                <%= f.radio_button :tone, "7", class: 'form-check-input' %>
-                <%= f.label :tone, "Playful", value: "7", class: 'form-check-label' %>
+                <!-- Tone Radio Buttons -->
+                <br>
+                <div class="form-group">
+                  <%= f.label :tone, "Tone", class: "option-label" %>
+                  <br>
+                  <br>
+                  <div class="radio-columns">
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "1", class: 'form-check-input' %>
+                      <%= f.label :tone, "Cheerful", value: "1", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "2", class: 'form-check-input' %>
+                      <%= f.label :tone, "Educational", value: "2", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "3", class: 'form-check-input' %>
+                      <%= f.label :tone, "Emotional", value: "3", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "4", class: 'form-check-input' %>
+                      <%= f.label :tone, "Humorous", value: "4", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "5", class: 'form-check-input' %>
+                      <%= f.label :tone, "Inspirational", value: "5", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "6", class: 'form-check-input' %>
+                      <%= f.label :tone, "Neutral", value: "6", class: 'form-check-label' %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.radio_button :tone, "7", class: 'form-check-input' %>
+                      <%= f.label :tone, "Playful", value: "7", class: 'form-check-label' %>
+                    </div>
+                  </div>
+                  <br>
+                  <%= f.submit 'regenerate', :class => 'spinner', :id => 'submit-button' %>
+                <% end %>
               </div>
             </div>
-            <br>
-            <%= f.submit 'regenerate', :class => 'spinner', :id => 'submit-button' %>
-            <% end %>
           </div>
         </div>
       </div>
-      </div>
     </div>
-  </div>
   </div>
 </div>
