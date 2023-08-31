@@ -1,27 +1,32 @@
-<div class="background-script">
-  <div class="container script-show justify-content-left">
-    <div class="row">
-      <div class="col-9">
-        <div class="bg-black rounded-md p-3 shadow-md" data-controller="editable-text" >
+<div class="background-script py-3">
+  <div class="container col-12">
+    <div class="storylab-container-gold mb-3">
+      <h1><%= @script.name.capitalize %></h1>
+      <p class="mb-0"><%= @script.blueprint.name.capitalize %></p>
+    </div>
+    <%# placeholders for real buttons %>
+    <div class="d-flex justify-content-start mb-3">
+      <div class="storylab-container-gold">Script</div>
+      <%= link_to location_path(@script.location) do %>
+        <div class="storylab-container-gold mx-3">Resources</div>
+      <% end %>
+    </div>
+    <div class="storylab-container-gold d-flex">
+      <div class="storylab-container-dark col-9">
+        <div class="storylab-container-cream" data-controller="editable-text">
           <form data-controller="clipboard">
-          <div class="script-category">
-            <p><%= @script.blueprint.name %></p>
-          </div>
-          <div class="script-title">
-            <h2><%= @script.topic %></h2>
-          </div>
             <div class="script-body" data-controller="replace" data-replace-script-id-value="<%= @script.id %>" data-replace-target="scriptBody">
-                <%= render 'scripts/script_body', script: @script %>
+              <%= render 'scripts/script_body', script: @script %>
             </div>
             <div class="button-submit">
               <button type="submit" class="btn btn-primary" data-action="editable-text#enableEditMode" data-editable-text-target="editButton">Edit</button>
               <button type="button" class="btn btn-primary" data-action="clipboard#copy" data-clipboard-target="trigger"><i class="fa-regular fa-copy"></i></button>
-              <%= link_to "Suggested locaton", location_path(@script.location) %>
             </div>
           </form>
         </div>
       </div>
       <div class="col-3">
+      <div class="storylab-container-cream">
         <div class="card-options" style="width: 20rem;">
           <div class="container-options p-3">
             <h2>Options</h2>
@@ -92,6 +97,7 @@
             <% end %>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

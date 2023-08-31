@@ -1,35 +1,51 @@
 <!-- app/views/locations/show.html.erb -->
-<div class="container col-12">
-  <div class="storylab-container-dark col-12">
+<div class="background-script py-3">
+  <div class="container col-12">
+    <div class="storylab-container-gold mb-3">
+      <h1><%= @location.script.name.capitalize %></h1>
+      <p class="mb-0"><%= @location.script.blueprint.name.capitalize %></p>
+    </div>
+    <%# placeholders for real buttons %>
+    <div class="d-flex justify-content-start mb-3">
+      <%= link_to script_path(@location.script) do %>
+        <div class="storylab-container-gold">Script</div>
+      <% end %>
+      <%= link_to location_path(@location) do %>
+        <div class="storylab-container-gold mx-3">Resources</div>
+      <% end %>
+    </div>
     <div class="storylab-container-gold d-flex">
-      <div class="col-4 storylab-container-cream">
-        <h2>Here's some FREE</h2>
-        <p>Stock videos for your project</p>
-        <p>(Click to download)</p>
-        <% @pexels_videos.each do |vid| %>
-          <div class="light-gold-div mb-3">
-            <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
-            <% video_url = hd_video.link %>
-            <%= link_to video_url, target: :_blank do %>
-              <div>
-                <%= video_tag video_url, controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
+      <div id="nil" class="col-4">
+        <div class="storylab-container-cream">
+          <h2>Free stock videos</h2>
+          <p>for your project</p>
+          <p>(Click to download)</p>
+          <div class="col">
+            <% @pexels_videos.each do |vid| %>
+              <div class="d-flex justify-content-center mb-3">
+                <div class="light-gold-div">
+                  <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
+                  <% video_url = hd_video.link %>
+                  <%= link_to video_url, target: :_blank do %>
+                    <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
+                  </div>
+                <% end %>
               </div>
             <% end %>
           </div>
-        <% end %>
-        <span class="footer__logo__text__opaque">— Beautiful free videos from Pexels.</span>
+          <span class="footer__logo__text__opaque">— Beautiful free videos from Pexels.</span>
+        </div>
       </div>
-      <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
-        <div>
-          <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
+      <div class="col-8 storylab-container-dark v-flex align-items-center justify-content-center">
+        <div class="storylab-container-cream">
           <h1>Recommended locations</h1>
           <p>to shoot your video.</p>
-          <%= raw @location.content.gsub("\n", "<br>") %>
+          <%= raw @location.content.gsub("\n\n", "<br>") %>
         </div>
-        <div class="mt-4">
+        <div class="mt-4 storylab-container-cream">
           <h1>Work plan</h1>
           <p>Follow these instructions to make your project easier.</p>
-          <%= raw @plan.content.gsub("\n", "<br>") %>
+          <%= raw @plan.content.gsub("\n\n", "<br>") %>
         </div>
       </div>
     </div>
