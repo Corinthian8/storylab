@@ -1,8 +1,8 @@
-<div class="container col-12">
-  <div class="storylab-container-dark col-12">
+<div>
+  <div class="storylab-container-dark col-12 container">
     <div class="storylab-container-gold d-flex">
       <div class="col-4 storylab-container-cream d-flex justify-content-center">
-        <%= image_tag("undraw_video_streaming_re_v3qg.svg", alt: "Your SVG Image", style: "width: 50%; height: auto;") %>
+        <%= image_tag(@blueprint.sampleimage, alt: "Blueprint Sample Image", style: "width: 100%; height: auto;") %>
       </div>
       <div class="col-8 storylab-container-gold v-flex align-items-center justify-content-center">
         <lead><%= 'short intro' %></lead>
@@ -35,7 +35,7 @@
         <br>
         <!-- Duration Slider -->
         <div class="form-group">
-        　<%= f.label :duration, "Duration (in minutes)", class: "option-label" %>
+        <%= f.label :duration, "Duration (in minutes)", class: "option-label" %>
             <div class="slider-container">
                   <%= f.input_field :duration, type: 'range', list: 'tickmarks', step: 3, min: 3, max: 15, value: 3, class: 'form-control-range' %>
                   <datalist id="tickmarks">
