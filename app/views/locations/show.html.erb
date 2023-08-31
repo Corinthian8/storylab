@@ -1,6 +1,15 @@
 <!-- app/views/locations/show.html.erb -->
 <div class="background-script py-3">
   <div class="container col-12">
+    <div class="storylab-container-gold mb-3">
+      <h1><%= @location.script.name.capitalize %></h1>
+      <p class="mb-0"><%= @location.script.blueprint.name.capitalize %></p>
+    </div>
+    <%# placeholders for real buttons %>
+    <div class="d-flex justify-content-start mb-3">
+      <div class="storylab-container-gold">Script</div>
+      <div class="storylab-container-gold mx-3">Resources</div>
+    </div>
     <div class="storylab-container-gold d-flex">
       <div class="col-4 storylab-container-cream">
         <h2>Here's some FREE</h2>
@@ -23,15 +32,14 @@
       </div>
       <div class="col-8 storylab-container-dark v-flex align-items-center justify-content-center">
         <div class="storylab-container-cream">
-          <lead><%= @location.script.name unless @location.script.name.nil? %></lead>
           <h1>Recommended locations</h1>
           <p>to shoot your video.</p>
-          <%= raw @location.content.gsub("\n", "<br>") %>
+          <%= raw @location.content.gsub("\n\n", "<br>") %>
         </div>
         <div class="mt-4 storylab-container-cream">
           <h1>Work plan</h1>
           <p>Follow these instructions to make your project easier.</p>
-          <%= raw @plan.content.gsub("\n", "<br>") %>
+          <%= raw @plan.content.gsub("\n\n", "<br>") %>
         </div>
       </div>
     </div>
