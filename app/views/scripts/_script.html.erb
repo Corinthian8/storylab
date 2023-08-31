@@ -1,4 +1,4 @@
-<div class="card mb-3 dark-gold-div">
+<div class="card my-4 gold-div">
   <div class="row no-gutters ml-4">
     <div class="col-md-4 light-gold-div">
       <% editing_video_url = "https://player.vimeo.com/external/297888097.sd.mp4?s=03dd8f3554e65f220699d2cdf55a3b1020d66b28&amp;profile_id=165&amp;oauth2_token_id=57447761" %>
@@ -15,7 +15,7 @@
       <div class="card-body py-3">
         <h4 class="card-text"><strong><%= script.blueprint.name %></strong>  -  "<i><%= script.topic %></i>"</h4>
         <br>
-        <h2 class="card-title"><strong><%= script.script_body[/(Title:).(?:(?!<\/h4>|<br>).)*/] %></strong></h2>
+        <h2 class="card-title"><strong><%= script.name %></strong></h2>
         <br>
         <div class ="d-flex justify-content-between pt-2">
           <p class="card-text text-muted"><%= script.updated_at.strftime("%Y-%m-%d") %></p>
