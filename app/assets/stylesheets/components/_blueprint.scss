@@ -2,16 +2,16 @@
   color: black;
   text-shadow: 1px 1px 2px gold;
   font-size: 3rem;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 .description-text {
   text-shadow: 1px 1px 3px lightgrey;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 h5 {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $main-font;
 }
 
 .word-cloud-box {
