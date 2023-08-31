@@ -2,13 +2,17 @@
   <%= link_to blueprint_path(blueprint) do %>
     <div class="card text-dark">
       <!-- White Tab for Text -->
-        <div class="card-header">
-          <div class="card-title-container">
-          <h4 class="card-title mt-0 "><p class="text-dark"><%= blueprint.name %></p></h4>
+      <div class="card-header">
+        <div class="card-title-container">
+          <h4 class="card-title mt-0 ">
+            <p><%= blueprint.name %></p>
+          </h4>
         </div>
       </div>
       <!-- Picture -->
-      <div><%= image_tag(blueprint.sampleimage, alt: "Blueprint Sample Image", style: "width: 100%;") %></div>
+      <div class="d-flex justify-content-center">
+        <%= image_tag(blueprint.sampleimage, alt: "Blueprint Sample Image", style: "width: 80%") %>
+      </div>
     </div>
   <% end %>
 </div>

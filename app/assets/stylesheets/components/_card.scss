@@ -10,17 +10,18 @@
   }
 
   p {
-    font-family: 'Titillium Web', sans-serif;
+    // font-family: 'Titillium Web', sans-serif;
   }
 
-  a:link, a:visited, a:hover, a:active{ text-decoration: none; }
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
 
   .lead {
     color: #aaa;
-  }
-
-  .wrapper {
-    margin: 3vh
   }
 
   //post card styles
@@ -28,17 +29,17 @@
   .card {
     border: none;
     // transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    padding: 20px;
+    padding: 16px;
     overflow: hidden;
     border-radius: 20px;
-    min-height: 320px;
-    min-width: 250px;
+    // min-height: 320px;
+    // min-width: 250px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
-    margin: 20px;
+    // margin: 16px;
 
     &:hover {
-      transform: scale(1.05);  // 1.05 means the card will grow to 105% of its original size
+      transform: scale(1.05); // 1.05 means the card will grow to 105% of its original size
     }
 
     @media (max-width: 768px) {
@@ -54,17 +55,17 @@
     .card-header {
       border: none;
       background-color: white;
-      color: black;
+      color: $dark;
       padding: 10px;
-      height: 100px;  // Set a fixed height for the header
+      height: 100px; // Set a fixed height for the header
       display: flex;
-      align-items: center;  // Vertically center the content
+      align-items: center; // Vertically center the content
       justify-content: center;
     }
 
     .card-title-container {
       text-align: center;
-      width: 100%;  // Take the full width of the parent
+      width: 100%; // Take the full width of the parent
     }
 
     .card-image {
@@ -101,12 +102,6 @@
         box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
         background-size: 130%;
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-
-        // .card-img-overlay {
-        //   transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-        //   background: rgb(255, 186, 33);
-        //   background: linear-gradient(0deg, rgba(255, 186, 33, 0.5) 0%, rgba(255, 186, 33, 1) 100%);
-        // }
       }
     }
 
@@ -116,14 +111,14 @@
 
       .media {
         img {
-          border: solid 3px rgba(255, 255, 255, 0.3);
+          // border: solid 3px rgba(255, 255, 255, 0.3);
         }
       }
     }
 
     .card-title {
-      font-weight: 800;
-      font-size: 18px;
+      // font-weight: 800;
+      // font-size: 18px;
     }
 
     .card-meta {
@@ -161,7 +156,7 @@
 }
 
 .text-cover p {
-  background: -webkit-linear-gradient(90deg,#eee, #333);
+  background: -webkit-linear-gradient(90deg, #eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
