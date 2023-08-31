@@ -7,28 +7,34 @@
     </div>
     <%# placeholders for real buttons %>
     <div class="d-flex justify-content-start mb-3">
-      <div class="storylab-container-gold">Script</div>
-      <div class="storylab-container-gold mx-3">Resources</div>
+      <%= link_to script_path(@location.script) do %>
+        <div class="storylab-container-gold">Script</div>
+      <% end %>
+      <%= link_to location_path(@location) do %>
+        <div class="storylab-container-gold mx-3">Resources</div>
+      <% end %>
     </div>
     <div class="storylab-container-gold d-flex">
-      <div class="col-4 storylab-container-cream">
-        <h2>Here's some FREE</h2>
-        <p>Stock videos for your project</p>
-        <p>(Click to download)</p>
-        <div class="col">
-          <% @pexels_videos.each do |vid| %>
-            <div class="d-flex justify-content-center mb-3">
-              <div class="light-gold-div">
-                <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
-                <% video_url = hd_video.link %>
-                <%= link_to video_url, target: :_blank do %>
-                  <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+      <div id="nil" class="col-4">
+        <div class="storylab-container-cream">
+          <h2>Free stock videos</h2>
+          <p>for your project</p>
+          <p>(Click to download)</p>
+          <div class="col">
+            <% @pexels_videos.each do |vid| %>
+              <div class="d-flex justify-content-center mb-3">
+                <div class="light-gold-div">
+                  <% hd_video = vid.files.find { |file| file.quality == 'sd' } %>
+                  <% video_url = hd_video.link %>
+                  <%= link_to video_url, target: :_blank do %>
+                    <%= video_tag video_url, size: "320x240", controls: false, autoplay: :autoplay, muted: :muted, loop: :loop, class: "rounded-video" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <span class="footer__logo__text__opaque">— Beautiful free videos from Pexels.</span>
         </div>
-        <span class="footer__logo__text__opaque">— Beautiful free videos from Pexels.</span>
       </div>
       <div class="col-8 storylab-container-dark v-flex align-items-center justify-content-center">
         <div class="storylab-container-cream">
