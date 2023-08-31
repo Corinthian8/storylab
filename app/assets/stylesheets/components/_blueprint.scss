@@ -38,10 +38,11 @@ h5 {
 
 .form-control-range::-webkit-slider-thumb {
   -webkit-appearance: none;
+  margin-top: -10px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: black;
+  background: $dark;
   cursor: pointer;
 }
 
@@ -49,7 +50,7 @@ h5 {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: black;
+  background: $dark;
   cursor: pointer;
 }
 
@@ -83,6 +84,6 @@ h5 {
 }
 
 .form-check-input {
-  background-color: black;
+  background-color: $dark;
   border-color: #f5ee57;
 }
