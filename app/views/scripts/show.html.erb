@@ -7,9 +7,13 @@
     </div>
     <%# placeholders for real buttons %>
     <div class="d-flex justify-content-start mb-3">
-      <div class="storylab-container-gold">Script</div>
+      <%= link_to script_path(@script) do %>
+        <%# <div class="storylab-container-gold">Script</div> %>
+        <button class="btn-tab">Script</button>
+      <% end %>
       <%= link_to location_path(@script.location) do %>
-        <div class="storylab-container-gold mx-3">Resources</div>
+        <%# <div class="storylab-container-gold mx-3">Resources</div> %>
+        <button class="btn-tab-inactive mx-3">Resources</button>
       <% end %>
     </div>
     <div class="storylab-container-gold d-flex">
