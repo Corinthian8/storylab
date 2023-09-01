@@ -1,11 +1,14 @@
-<div class="container scripts-index">
-    <div class="row">
-      <div class="col storylab-container-dark">
-        <div class="cp_card02 my-4">
-          <% @scripts.each do |script| %>
-            <%= render "script", script: script %>
-          <% end %>
-        </div>
+<div class="background-script py-3">
+  <div class="container storylab-container-gold mb-3">
+    <h1>Your Scripts</h1>
+  </div>
+  <div class="container storylab-container-gold">
+    <div class="col storylab-container-dark">
+      <div class="cp_card02">
+        <% @scripts.each do |script| %>
+          <%= render "script", script: script %>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>
