@@ -28,7 +28,7 @@ puts "#{five_simple_steps.name} blueprint has been created"
 comparison = Blueprint.create!(
   name: 'Comparison',
   prompt_template: %{
-    "Please generate a detailed script comparing the features and specifications of the indicated items,
+    "Generate a detailed script comparing the features and specifications of the indicated items,
     highlighting the improvements and differences between them."
     },
   sample_videos: %w[ZOYIJ9LKF0k 8UKikrUZg7Q wmb5AmE4TUs],
@@ -44,7 +44,7 @@ commentary = Blueprint.create!(
   name: 'Commentary',
   prompt_template: 'Script a reaction video to the indicated topic. It should include initial impressions,
   emotional responses, and thoughtful commentary.',
-  sample_videos: ['zIqR43D4CwI', '3s3CmyepjMc', '3s3CmyepjMc'],
+  sample_videos: ['zIqR43D4CwI', '3s3CmyepjMc', 'uPX1ObBBt_U'],
   word_cloud: ["Humorous", "Opinionated", "Casual", "Free-flowing", "Instinctual", "Cheeky"],
   description: 'Provide real-time commentary and emotional responses while experiencing various forms of media content,
   often for entertainment or discussion purposes.',
