@@ -95,7 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "location_id"
     t.index ["blueprint_id"], name: "index_scripts_on_blueprint_id"
+    t.index ["location_id"], name: "index_scripts_on_location_id"
     t.index ["user_id"], name: "index_scripts_on_user_id"
   end
 
@@ -116,5 +118,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_110558) do
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "scripts", "blueprints"
+  add_foreign_key "scripts", "locations"
   add_foreign_key "scripts", "users"
 end
