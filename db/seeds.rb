@@ -28,7 +28,7 @@ puts "#{five_simple_steps.name} blueprint has been created"
 comparison = Blueprint.create!(
   name: 'Comparison',
   prompt_template: %{
-    "Please generate a detailed script comparing the features and specifications of the indicated items,
+    "Generate a detailed script comparing the features and specifications of the indicated items,
     highlighting the improvements and differences between them."
     },
   sample_videos: %w[ZOYIJ9LKF0k 8UKikrUZg7Q wmb5AmE4TUs],
